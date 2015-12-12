@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'array-contains-helper'
+  name: 'ember-array-contains-helper'
 };

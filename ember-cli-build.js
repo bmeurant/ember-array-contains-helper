@@ -7,6 +7,8 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  if (app.env !== 'production') { app.import('bower_components/ember/ember-template-compiler.js', { type: 'vendor' }); }
+
   /*
     This build file specifes the options for the dummy test app of this
     addon, located in `/tests/dummy`
