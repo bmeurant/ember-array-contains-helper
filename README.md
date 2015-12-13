@@ -6,6 +6,11 @@ This helper allows to test the presence of a literal, an entire object or an obj
 a specific property set at a specific value, can be found into the given array. Objects can
 be native or Ember objects.
 
+## Samples & Demo
+
+* A dummy demo application containing syntax samples runs [here](http://baptiste.meurant.io/ember-array-contains-helper/)
+* The source code of this demo can be found [here](https://github.com/bmeurant/ember-array-contains-helper/blob/master/tests/dummy/app/templates/application.hbs)
+
 ## Compatibility
 
 This helper is tested and compatible with **1.13.1+ ember versions**. See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper)
@@ -129,11 +134,6 @@ Note that null or undefined are considered acceptable and equivalent values for 
 
 This addon installs observers on the provided array to listen any external change made on it. It includes any addition/removal
 of an item and, if a property is specified, any change of the property of any array element.
-
-### Samples & Demo
-
-* A dummy demo application containing syntax samples runs [here](http://baptiste.meurant.io/ember-array-contains-helper/)
-* The source code of this demo can be found [here](https://github.com/bmeurant/ember-array-contains-helper/blob/master/tests/dummy/app/templates/application.hbs)
 
 ## Development
 
