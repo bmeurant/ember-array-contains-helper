@@ -44,6 +44,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "http://baptiste.meurant.io/ember-array-contains-helper/",
+    "demoURL": "http://baptiste.meurant.io/ember-array-contains-helper/"
   }
 }
