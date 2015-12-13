@@ -1,0 +1,16 @@
+.comics {
+  height: 80px;
+}
+
+.contains-true {
+  color: green;
+}
+
+.contains-false {
+  color: red;
+}
+
+.samples {
+  display: inline-block;
+  width: 24%;
+}

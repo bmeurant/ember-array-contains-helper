@@ -1,3 +1,103 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Ember Array Contains Helper Demo</h2>
 
-{{outlet}}
+<div id="buttons">
+  <button {{action 'toggleAkira'}}>Remove/Add Akira</button>
+  <button {{action 'toggleBlacksad'}}>Change Blacksad title</button>
+  <button {{action 'toggleBlueberry'}}>Add/Remove Blueberry</button>
+</div>
+
+<div class="samples">
+  <h3>Comics List (literals): </h3>
+  <ul class="comics">
+    {{#each model.comicsLiterals as |comic|}}
+      <li>{{comic}}</li>
+    {{/each}}
+  </ul>
+
+  <ul class="results">
+    <li>
+      List contains 'Akira' : <strong
+        class="{{if (array-contains model.comicsLiterals 'Akira') 'contains-true' 'contains-false'}}">{{array-contains model.comicsLiterals 'Akira'}}</strong>
+    </li>
+    <li>
+      List contains 'Blacksad' : <strong
+        class="{{if (array-contains model.comicsLiterals 'Blacksad') 'contains-true' 'contains-false'}}">{{array-contains model.comicsLiterals 'Blacksad'}}</strong>
+    </li>
+    <li>
+      List contains 'Blueberry' : <strong
+        class="{{if (array-contains model.comicsLiterals 'Blueberry') 'contains-true' 'contains-false'}}">{{array-contains model.comicsLiterals 'Blueberry'}}</strong>
+    </li>
+  </ul>
+</div>
+
+<div class="samples">
+  <h3>Comics List (Native Objects): </h3>
+  <ul class="comics">
+    {{#each model.comicsNative as |comic|}}
+      <li>{{comic.title}}</li>
+    {{/each}}
+  </ul>
+
+  <ul class="results">
+    <li>
+      List contains 'Akira' : <strong
+        class="{{if (array-contains model.comicsNative 'Akira' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNative 'Akira' property='title'}}</strong>
+    </li>
+    <li>
+      List contains 'Blacksad' : <strong
+        class="{{if (array-contains model.comicsNative 'Blacksad' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNative 'Blacksad' property='title'}}</strong>
+    </li>
+    <li>
+      List contains 'Blueberry' : <strong
+        class="{{if (array-contains model.comicsNative 'Blueberry' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNative 'Blueberry' property='title'}}</strong>
+    </li>
+  </ul>
+</div>
+
+<div class="samples">
+  <h3>Comics List (Without Ember Data): </h3>
+  <ul class="comics">
+    {{#each model.comicsNoData as |comic|}}
+      <li>{{comic.title}}</li>
+    {{/each}}
+  </ul>
+
+  <ul class="results">
+    <li>
+      List contains 'Akira' : <strong
+        class="{{if (array-contains model.comicsNoData 'Akira' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNoData 'Akira' property='title'}}</strong>
+    </li>
+    <li>
+      List contains 'Blacksad' : <strong
+        class="{{if (array-contains model.comicsNoData 'Blacksad' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNoData 'Blacksad' property='title'}}</strong>
+    </li>
+    <li>
+      List contains 'Blueberry' : <strong
+        class="{{if (array-contains model.comicsNoData 'Blueberry' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNoData 'Blueberry' property='title'}}</strong>
+    </li>
+  </ul>
+</div>
+
+<div class="samples">
+  <h3>Comics List (With Ember Data): </h3>
+  <ul class="comics">
+    {{#each model.comics as |comic|}}
+      <li>{{comic.title}}</li>
+    {{/each}}
+  </ul>
+
+  <ul class="results">
+    <li>
+      List contains 'Akira' : <strong
+        class="{{if (array-contains model.comics 'Akira' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comics 'Akira' property='title'}}</strong>
+    </li>
+    <li>
+      List contains 'Blacksad' : <strong
+        class="{{if (array-contains model.comics 'Blacksad' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comics 'Blacksad' property='title'}}</strong>
+    </li>
+    <li>
+      List contains 'Blueberry' : <strong
+        class="{{if (array-contains model.comics 'Blueberry' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comics 'Blueberry' property='title'}}</strong>
+    </li>
+  </ul>
+</div>
