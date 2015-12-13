@@ -1,4 +1,4 @@
-# ember-array-contains-helper
+# ember-array-contains-helper [![Build Status](https://travis-ci.org/bmeurant/ember-array-contains-helper.svg?branch=master)](https://travis-ci.org/bmeurant/ember-array-contains-helper)
 
 Ember HTMLBars template helper allowing to test if an array contains a particular element.
  
