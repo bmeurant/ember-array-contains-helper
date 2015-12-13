@@ -1,5 +1,10 @@
 import Ember from 'ember';
 
+let akiraLit = 'Akira';
+let blacksadLit = 'Blacksad';
+let calvinHandHobbesLit = 'CalvinAndHobbes';
+let blueberryLit = 'Blueberry';
+
 let akira = {title: 'Akira'};
 let blacksad = {title: 'Blacksad'};
 let calvinAndHobbes = {title: 'Calvin and Hobbes'};
@@ -26,7 +31,7 @@ let blueberryND = ComicNoData.create({
 });
 
 export default Ember.Route.extend({
-  comicsLiterals: ['Akira', 'Blacksad', 'CalvinAndHobbes'],
+  comicsLiterals: [akiraLit, blacksadLit, calvinHandHobbesLit],
   comicsNative: Ember.A([akira, blacksad, calvinAndHobbes]),
   comicsNoData: [akiraND, blackSadND, calvinAndHobbesND],
   akira: true,
@@ -42,15 +47,23 @@ export default Ember.Route.extend({
     });
   },
 
+  setupController (controller, model) {
+    controller.set('calvinAndHobbesLiteral', calvinHandHobbesLit);
+    controller.set('calvinAndHobbesNative', calvinAndHobbes);
+    controller.set('calvinAndHobbesNoData', calvinAndHobbesND);
+    controller.set('calvinAndHobbes', this.set('calvinAndHobbes', this.store.find('comic', 3)));
+    this._super(controller, model);
+  },
+
   actions: {
     toggleBlueberry () {
       if (this.get('blueberry')) {
-        this.get('comicsLiterals').removeObject('Blueberry');
+        this.get('comicsLiterals').removeObject(blueberryLit);
         this.get('comicsNative').removeObject(blueberry);
         this.get('comicsNoData').removeObject(blueberryND);
         this.store.unloadRecord(this.store.peekRecord('comic', 4));
       } else {
-        this.get('comicsLiterals').pushObject('Blueberry');
+        this.get('comicsLiterals').pushObject(blueberryLit);
         this.get('comicsNative').pushObject(blueberry);
         this.get('comicsNoData').pushObject(blueberryND);
         this.store.createRecord('comic', {id: 4, title: 'Blueberry'});
@@ -59,12 +72,12 @@ export default Ember.Route.extend({
     },
     toggleAkira () {
       if (this.get('akira')) {
-        this.get('comicsLiterals').removeObject('Akira');
+        this.get('comicsLiterals').removeObject(akiraLit);
         this.get('comicsNative').removeObject(akira);
         this.get('comicsNoData').removeObject(akiraND);
         this.store.unloadRecord(this.store.peekRecord('comic', 1));
       } else {
-        this.get('comicsLiterals').pushObject('Akira');
+        this.get('comicsLiterals').pushObject(akiraLit);
         this.get('comicsNative').pushObject(akira);
         this.get('comicsNoData').pushObject(akiraND);
         this.store.createRecord('comic', {id: 1, title: 'Akira'});

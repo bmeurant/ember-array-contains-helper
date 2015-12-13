@@ -24,6 +24,10 @@
         class="{{if (array-contains model.comicsLiterals 'Blacksad') 'contains-true' 'contains-false'}}">{{array-contains model.comicsLiterals 'Blacksad'}}</strong>
     </li>
     <li>
+      List contains 'Calvin And Hobbes' : <strong
+        class="{{if (array-contains model.comicsLiterals calvinAndHobbesLiteral) 'contains-true' 'contains-false'}}">{{array-contains model.comicsLiterals calvinAndHobbesLiteral}}</strong>
+    </li>
+    <li>
       List contains 'Blueberry' : <strong
         class="{{if (array-contains model.comicsLiterals 'Blueberry') 'contains-true' 'contains-false'}}">{{array-contains model.comicsLiterals 'Blueberry'}}</strong>
     </li>
@@ -46,6 +50,10 @@
     <li>
       List contains 'Blacksad' : <strong
         class="{{if (array-contains model.comicsNative 'Blacksad' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNative 'Blacksad' property='title'}}</strong>
+    </li>
+    <li>
+      List contains 'Calvin And Hobbes' : <strong
+        class="{{if (array-contains model.comicsNative calvinAndHobbesNative) 'contains-true' 'contains-false'}}">{{array-contains model.comicsNative calvinAndHobbesNative}}</strong>
     </li>
     <li>
       List contains 'Blueberry' : <strong
@@ -72,6 +80,10 @@
         class="{{if (array-contains model.comicsNoData 'Blacksad' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNoData 'Blacksad' property='title'}}</strong>
     </li>
     <li>
+      List contains 'Calvin And Hobbes' : <strong
+        class="{{if (array-contains model.comicsNoData calvinAndHobbesNoData) 'contains-true' 'contains-false'}}">{{array-contains model.comicsNoData calvinAndHobbesNoData}}</strong>
+    </li>
+    <li>
       List contains 'Blueberry' : <strong
         class="{{if (array-contains model.comicsNoData 'Blueberry' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comicsNoData 'Blueberry' property='title'}}</strong>
     </li>
@@ -96,8 +108,14 @@
         class="{{if (array-contains model.comics 'Blacksad' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comics 'Blacksad' property='title'}}</strong>
     </li>
     <li>
+      List contains 'Calvin And Hobbes' *: <strong
+        class="{{if (array-contains model.comics calvinAndHobbes) 'contains-true' 'contains-false'}}">{{array-contains model.comics calvinAndHobbes}}</strong>
+    </li>
+    <li>
       List contains 'Blueberry' : <strong
         class="{{if (array-contains model.comics 'Blueberry' property='title') 'contains-true' 'contains-false'}}">{{array-contains model.comics 'Blueberry' property='title'}}</strong>
     </li>
   </ul>
 </div>
+
+<div>* There is no strict equality with ember-data in returned objects from store</div>
