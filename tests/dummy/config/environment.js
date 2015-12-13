@@ -40,7 +40,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = 'http://baptiste.meurant.io/ember-array-contains-helper'
+    ENV.baseURL = 'http://baptiste.meurant.io/ember-array-contains-helper',
+    ENV.locationType = 'hash'
   }
 
   return ENV;
