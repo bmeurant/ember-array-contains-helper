@@ -218,4 +218,45 @@ test('should rerun test when array replaced', function (assert) {
   assert.equal(this.$().text(), "false", "array should not contain 'any'");
 });
 
+test('should rerun test when array changed', function (assert) {
+  let array = ['any'];
+  this.set('array', array);
+
+  this.render(Ember.HTMLBars.compile("{{array-contains array 'any'}}"));
+  assert.equal(this.$().text(), "true", "array should contain 'any'");
+
+  Ember.run(() => {
+    array.popObject();
+  });
+
+  assert.equal(this.$().text(), "false", "array should not contain 'any'");
+
+  Ember.run(() => {
+    array.pushObject('any');
+  });
+
+  assert.equal(this.$().text(), "true", "array should contain 'any'");
+});
+
+test('should rerun test when property in array changed', function (assert) {
+  let object = {id:1, title: 'any'};
+  let array = [object];
+  this.set('array', array);
+
+  this.render(Ember.HTMLBars.compile("{{array-contains array 'any' property='title'}}"));
+  assert.equal(this.$().text(), "true", "array should contain object with prop 'any'");
+
+  Ember.run(() => {
+    Ember.set(object, 'title', 'not');
+  });
+
+  assert.equal(this.$().text(), "false", "array should not contain object with prop 'any'");
+
+  Ember.run(() => {
+    Ember.set(object, 'title', 'any');
+  });
+
+  assert.equal(this.$().text(), "true", "array should contain object with prop 'any'");
+});
+
 
