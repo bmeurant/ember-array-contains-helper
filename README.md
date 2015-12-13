@@ -8,7 +8,10 @@ be native or Ember objects.
 
 ## Compatibility
 
-This helper is tested and compatible with **1.13.0+ ember versions**. See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper)
+This helper is tested and compatible with **1.13.1+ ember versions**. See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper)
+
+Note that the helper basically works in **1.13.0 ember version** but the changes on the array (add/remove/change property) will
+not rerun the helper. This is probably due to [this bug](https://github.com/emberjs/ember.js/pull/11445).
 
 ## Installation
 
