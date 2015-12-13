@@ -9,12 +9,15 @@ import Ember from "ember";
  * - the presence of the object itself:
  *    ``{{array-contains array object}}``
  * - the presence of an object containing a specific property with a specific value:
- *    ``{{array-contains array object property='title'}}``
+ *    ``{{array-contains array 'value' property='title'}}``
  *
  * Note that null or undefined are considered acceptable and equivalent values for 'value' parameter (resolve both to null)
  *
- * This helper could be used standalone of, more often combined with the ``if`` helper:
- * ``{{if (array-contains array object property='title') 'something' 'something else'}}``
+ * This helper could be used standalone or, more often, combined with the ``if`` helper:
+ * ``{{if (array-contains array 'value' property='title') 'something' 'something else'}}``
+ *
+ * This addon installs observers on the provided array to listen any external change made on it. It includes any addition/removal
+ * of an item and, if a property is specified, any change of the property of any array element.
  */
 export default Ember.Helper.extend({
   compute (params, hash) {
