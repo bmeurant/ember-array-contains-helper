@@ -8,7 +8,7 @@ be native or Ember objects.
 
 ## Compatibility
 
-This helper is, for now, only proved compatible with **ember 2.2.0** and surely not compatible with version < 1.13.0
+This helper is tested and compatible with **1.13.0+ ember versions**. See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper)
 
 ## Installation
 
