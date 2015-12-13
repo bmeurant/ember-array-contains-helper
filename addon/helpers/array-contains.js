@@ -1,3 +1,4 @@
+/*jshint curly: false */
 import Ember from "ember";
 
 /**
