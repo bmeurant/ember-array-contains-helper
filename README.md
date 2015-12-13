@@ -1,10 +1,14 @@
-# Array-contains-helper
+# ember-array-contains-helper
 
 Ember HTMLBars template helper allowing to test if an array contains a particular element.
  
 This helper allows to test the presence of a literal, an entire object or an object with
 a specific property set at a specific value, can be found into the given array. Objects can
 be native or Ember objects.
+
+## Compatibility
+
+This helper is, for now, only proved compatible with **ember 2.2.0** and surely not compatible with version < 1.13.0
 
 ## Installation
 
