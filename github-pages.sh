@@ -9,7 +9,6 @@ git rm -rf Brocfile.js bower.json package.json testem.json
 git rm -rf .bowerrc .editorconfig .jshintrc .travis.yml
 git rm -rf .watchmanconfig .npmignore .ember-cli
 git rm -rf index.js LICENSE.md README.md
-git rm -rf gh-pages.sh
 mv dist/* .
 rm -rf dist
 git add .

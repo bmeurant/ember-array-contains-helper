@@ -1,4 +1,7 @@
 export default function () {
+  this.urlPrefix = '/';
+  this.namespace = '/';
+
   this.get('/comics');
   this.get('/comics/:id');
   this.post('/comics', 'comic');
