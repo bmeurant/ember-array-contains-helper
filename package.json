@@ -1,6 +1,6 @@
 {
   "name": "ember-array-contains-helper",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Ember helper to test the presenceof an item in an array",
   "directories": {
     "doc": "doc",
