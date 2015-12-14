@@ -24,7 +24,8 @@ export default Ember.Helper.extend({
   compute(params, hash) {
     Ember.assert('params should be a not null valid array', Ember.isArray(params));
 
-    let [array, value] = params;
+    let array = params[0];
+    let value = params[1];
     Ember.assert('First parameter should be a not null valid array', Ember.isArray(array));
 
     let property = hash ? hash.property : null;
