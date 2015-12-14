@@ -2,7 +2,11 @@
 
 [![Build Status](https://travis-ci.org/bmeurant/ember-array-contains-helper.svg?branch=master)](https://travis-ci.org/bmeurant/ember-array-contains-helper)
 [![npm version](https://badge.fury.io/js/ember-array-contains-helper.svg)](http://badge.fury.io/js/ember-array-contains-helper)
+
 [![Code Climate](https://codeclimate.com/github/bmeurant/ember-array-contains-helper/badges/gpa.svg)](https://codeclimate.com/github/bmeurant/ember-array-contains-helper)
+[![Dependency Status](https://david-dm.org/bmeurant/ember-array-contains-helper.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper)
+[![Dependency Status](https://david-dm.org/bmeurant/ember-array-contains-helper/dev-status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper#info=devDependencies)
+
 
 Ember HTMLBars template helper allowing to test if an array contains a particular element.
  
