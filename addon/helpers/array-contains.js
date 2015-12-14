@@ -21,12 +21,13 @@ import Ember from "ember";
  * of an item and, if a property is specified, any change of the property of any array element.
  */
 export default Ember.Helper.extend({
-  compute (params, hash) {
-    let [array, value] = params;
+  compute(params, hash) {
+    Ember.assert('params should be a not null valid array', Ember.isArray(params));
 
+    let [array, value] = params;
     Ember.assert('First parameter should be a not null valid array', Ember.isArray(array));
 
-    let property = hash.property;
+    let property = hash ? hash.property : null;
     let contains = false;
     this.setupRecompute(array, property);
 
@@ -43,6 +44,10 @@ export default Ember.Helper.extend({
     }
 
     return contains;
+  },
+
+  recompute: function () {
+    if (this._stream) this._stream.notify();
   },
 
   destroy() {

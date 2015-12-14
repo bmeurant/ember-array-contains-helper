@@ -14,14 +14,14 @@ test('should throw error if array undefined or invalid', function (assert) {
     this.render(Ember.HTMLBars.compile("{{array-contains array 'any'}}"));
   }
   catch (error) {
-    assert.ok(error !== undefined, "null array throws exception");
+    assert.ok(error && error instanceof Ember.Error, "null array throws Ember error");
   }
 
   try {
     this.set('array', 'any');
   }
   catch (error) {
-    assert.ok(error !== undefined, "invalid array throws exception");
+    assert.ok(error instanceof Ember.Error, "invalid array throws Ember error");
   }
 
 });
@@ -257,6 +257,20 @@ test('should rerun test when property in array changed', function (assert) {
   });
 
   assert.equal(this.$().text(), "true", "array should contain object with prop 'any'");
+});
+
+test('should return true in nested if if Ember object property contained', function (assert) {
+  this.set('array', [Ember.Object.create({id: 1, title: 'any'})]);
+
+  this.render(Ember.HTMLBars.compile("{{if (array-contains array 'any' property='title') 'ifTrue' 'ifFalse'}}"));
+  assert.equal(this.$().text(), "ifTrue", "array should contain 'any' title");
+});
+
+test('should return false in nested if if Ember object property not contained', function (assert) {
+  this.set('array', [Ember.Object.create({id: 2, title: 'other'})]);
+
+  this.render(Ember.HTMLBars.compile("{{if (array-contains array 'any' property='title') 'ifTrue' 'ifFalse'}}"));
+  assert.equal(this.$().text(), "ifFalse", "array should not contain 'any' title");
 });
 
 
