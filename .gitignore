@@ -11,10 +11,14 @@
 # misc
 /.sass-cache
 /connect.lock
-/coverage/*
 /libpeerconnection.log
 npm-debug.log
 testem.log
+
+# coverage
+/coverage/*
+lcov.dat
+coverage.json
 
 # ide
 /.idea
