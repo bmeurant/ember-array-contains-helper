@@ -5,23 +5,27 @@ moduleForComponent('array-contains', 'helper:array-contains', {
   integration: true
 });
 
-test('should throw error if array undefined or invalid', function (assert) {
-  assert.expect(2);
+test('should not throw error if array undefined or null', function (assert) {
+  this.set('array', undefined);
+
+  this.render(Ember.HTMLBars.compile("{{array-contains array 'any'}}"));
+  assert.equal(this.$().text(), "false", "array should not contain anything");
 
   this.set('array', null);
+  assert.equal(this.$().text(), "false", "array should not contain anything");
+
+});
+
+test('should throw error if array is invalid', function (assert) {
+  assert.expect(1);
+
+  this.set('array', 'any');
 
   try {
     this.render(Ember.HTMLBars.compile("{{array-contains array 'any'}}"));
   }
   catch (error) {
     assert.ok(error && error instanceof Ember.Error, "null array throws Ember error");
-  }
-
-  try {
-    this.set('array', 'any');
-  }
-  catch (error) {
-    assert.ok(error instanceof Ember.Error, "invalid array throws Ember error");
   }
 
 });
@@ -239,7 +243,7 @@ test('should rerun test when array changed', function (assert) {
 });
 
 test('should rerun test when property in array changed', function (assert) {
-  let object = {id:1, title: 'any'};
+  let object = {id: 1, title: 'any'};
   let array = [object];
   this.set('array', array);
 

@@ -12,10 +12,19 @@
 
 
 Ember HTMLBars template helper allowing to test if an array contains a particular element.
+
+```html
+{{array-contains model 'value' property='title'}}
+``` 
  
 This helper allows to test the presence of a literal, an entire object or an object with
 a specific property set at a specific value, can be found into the given array. Objects can
 be native or Ember objects.
+
+## Observing
+
+This addon installs observers on the provided array to listen any external change made on it. It includes any addition/removal
+of an item and, if a property is specified, any change of the property of any array element.
 
 ## Samples & Demo
 
@@ -140,11 +149,6 @@ export default Ember.Route.extend({
 ```
 
 Note that null or undefined are considered acceptable and equivalent values for 'value' parameter (resolve both to null)
-
-### Observing
-
-This addon installs observers on the provided array to listen any external change made on it. It includes any addition/removal
-of an item and, if a property is specified, any change of the property of any array element.
 
 ## Development
 

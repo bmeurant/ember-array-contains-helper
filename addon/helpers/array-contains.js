@@ -26,6 +26,11 @@ export default Ember.Helper.extend({
 
     let array = params[0];
     let value = params[1];
+
+    // if array undefined or null, we test against an empty array. This is particularily usefull
+    // if the test occurs before a promise is resolved, for example
+    if (Ember.isNone(array)) array = Ember.A([]);
+
     Ember.assert('First parameter should be a not null valid array', Ember.isArray(array));
 
     let property = hash ? hash.property : null;
