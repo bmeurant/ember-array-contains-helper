@@ -17,6 +17,13 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' *.google.com *.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' *.google.com *.googleapis.com",
+      'font-src': "'self' *.gstatic.com *.googleapis.com",
+      'img-src': "'self' *.amazonaws.com",
     }
   };
 

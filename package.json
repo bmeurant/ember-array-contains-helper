@@ -31,11 +31,13 @@
     "ember-cli-mirage": "0.1.11",
     "ember-cli-qunit": "^1.0.4",
     "ember-cli-release": "0.2.8",
+    "ember-cli-sass": "5.2.1",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.2.1",
     "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
+    "ember-paper": "0.2.10",
     "ember-try": "~0.0.8"
   },
   "keywords": [

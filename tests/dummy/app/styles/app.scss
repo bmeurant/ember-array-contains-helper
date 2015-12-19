@@ -1,0 +1,49 @@
+@import 'ember-paper';
+
+.logo {
+  height: 30px;
+}
+
+#title {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+h3 {
+  margin: 15px 0 10px 0;
+}
+
+md-content {
+  padding: 10px 20px;
+}
+
+md-list-item, md-list-item .md-list-item-inner {
+  min-height: 25px;
+}
+
+md-list-item .md-no-style {
+  padding: 0 8px;
+}
+
+.comics {
+  height: 100px;
+}
+
+.contains-true {
+  color: green;
+}
+
+.contains-false {
+  color: red;
+}
+
+.samples {
+  display: table;
+}
+
+.sample {
+  display: table-cell;
+  width: 24%;
+}
+
