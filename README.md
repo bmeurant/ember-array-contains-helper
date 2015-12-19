@@ -13,7 +13,7 @@
 
 Ember HTMLBars template helper allowing to test if an array contains a particular element.
 
-```html
+```hbs
 {{array-contains model 'value' property='title'}}
 ``` 
  
@@ -44,7 +44,7 @@ not rerun the helper. This is probably due to [this bug](https://github.com/embe
 
 ## Usage
 
-```html
+```hbs
 {{array-contains <array> <value> [property='<property>']}}
 ```
 
@@ -60,12 +60,12 @@ property `<property>` with the value `<value>`. If not, the search is done of th
 This helper could be:
 
 * used standalone: 
-   ```html
+   ```hbs
    {{array-contains model 'value' property='title'}}
    ``` 
    
 * or, more often, combined with the ``if`` helper: 
-   ```html
+   ```hbs
    {{if (array-contains model 'value' property='title') 'something' 'something else'}}
    ```
 
@@ -84,7 +84,7 @@ export default Ember.Route.extend({
 });
 ```
 
-```html
+```hbs
 {{!-- templates/application.hbs --}}
 
 {{array-contains model 'Akira'}}
@@ -122,7 +122,7 @@ export default Ember.Route.extend({
 });
 ```
 
-```html
+```hbs
 {{!-- templates/application.hbs --}}
    
 {{array-contains model calvinAndHobbes}}
@@ -142,7 +142,7 @@ export default Ember.Route.extend({
 });
 ```
 
-```html
+```hbs
 {{!-- templates/application.hbs --}}
    
 {{array-contains model 'Blacksad' property='title'}}
