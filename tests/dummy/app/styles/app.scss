@@ -14,6 +14,22 @@ h3 {
   margin: 15px 0 10px 0;
 }
 
+#buttons {
+  flex: 1;
+  text-align: center;
+}
+
+.md-button {
+  margin: 0;
+  font-size: 12px;
+  line-height: 30px;
+  min-height: 20px;
+}
+
+.sources {
+  font-size: 14px;
+}
+
 md-content {
   padding: 10px 20px;
 }
@@ -45,5 +61,29 @@ md-list-item .md-no-style {
 .sample {
   display: table-cell;
   width: 24%;
+}
+
+.results {
+  height: 150px;
+
+  small {
+    padding-top: 10px;
+    display: inline-block;
+  }
+}
+
+pre {
+  margin-right: 10px;
+  height: 150px;
+}
+
+.hljs {
+  color: #f8f8f8;
+  background: #333;
+  border-radius: 4px;
+}
+
+.hljs-variable {
+  color: white;
 }
 

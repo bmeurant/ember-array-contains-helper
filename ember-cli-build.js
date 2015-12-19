@@ -4,7 +4,7 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
-    // Add options here
+    snippetSearchPaths: ['app', 'tests']
   });
 
   if (app.env !== 'production') { app.import('bower_components/ember/ember-template-compiler.js', { type: 'vendor' }); }

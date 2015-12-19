@@ -9,9 +9,13 @@
         <h2 id="title">Array Contains Helper Demo</h2>
       </div>
 
-      <span flex></span>
+      <div id="buttons">
+        {{paper-button action='toggleAkira' raised=true label="Remove/Add Akira"}}
+        {{paper-button action='toggleBlacksad' raised=true label="Change Blacksad title"}}
+        {{paper-button action='toggleBlueberry' raised=true label="Add/Remove Blueberry"}}
+      </div>
 
-      <a href="https://github.com/bmeurant/ember-array-contains-helper">
+      <a href="https://github.com/bmeurant/ember-array-contains-helper" class="sources">
         {{paper-icon icon='code'}}
         View Sources on Github
       </a>
@@ -21,12 +25,6 @@
 {{/paper-nav-container}}
 
 {{#paper-content}}
-
-  <div id="buttons">
-    {{paper-button action='toggleAkira' raised=true label="Remove/Add Akira"}}
-    {{paper-button action='toggleBlacksad' raised=true label="Change Blacksad title"}}
-    {{paper-button action='toggleBlueberry' raised=true label="Add/Remove Blueberry"}}
-  </div>
 
   <div class="samples">
     <div class="sample">
@@ -63,6 +61,8 @@
           </strong>
         {{/paper-item}}
       {{/paper-list}}
+
+      {{code-snippet name="literal.hbs"}}
     </div>
 
     <div class="sample">
@@ -99,6 +99,8 @@
           </strong>
         {{/paper-item}}
       {{/paper-list}}
+
+      {{code-snippet name="native.hbs"}}
     </div>
 
     <div class="sample">
@@ -135,6 +137,8 @@
           </strong>
         {{/paper-item}}
       {{/paper-list}}
+
+      {{code-snippet name="ember.hbs"}}
     </div>
 
     <div class="sample">
@@ -170,8 +174,10 @@
             {{array-contains model.comics 'Blueberry' property='title'}}
           </strong>
         {{/paper-item}}
+        <small><i>* There is no strict equality with ember-data in returned objects from store</i></small>
       {{/paper-list}}
-      <small><i>* There is no strict equality with ember-data in returned objects from store</i></small>
+
+      {{code-snippet name="data.hbs"}}
     </div>
   </div>
 
