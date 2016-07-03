@@ -23,3 +23,6 @@ coverage.json
 # ide
 /.idea
 *.iml
+.vscodeignore
+/typings
+jsconfig.json
