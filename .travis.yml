@@ -14,33 +14,7 @@ addons:
         repo_token: $CODECLIMATE_REPO_TOKEN
 
 env:
-  - EMBER_TRY_SCENARIO=default
-  - EMBER_TRY_SCENARIO=ember-1.13.0
-  - EMBER_TRY_SCENARIO=ember-1.13.1
-  - EMBER_TRY_SCENARIO=ember-1.13.2
-  - EMBER_TRY_SCENARIO=ember-1.13.3
-  - EMBER_TRY_SCENARIO=ember-1.13.4
-  - EMBER_TRY_SCENARIO=ember-1.13.5
-  - EMBER_TRY_SCENARIO=ember-1.13.6
-  - EMBER_TRY_SCENARIO=ember-1.13.7
-  - EMBER_TRY_SCENARIO=ember-1.13.8
-  - EMBER_TRY_SCENARIO=ember-1.13.9
-  - EMBER_TRY_SCENARIO=ember-1.13.10
-  - EMBER_TRY_SCENARIO=ember-1.13.11
-  - EMBER_TRY_SCENARIO=ember-2.0.0
-  - EMBER_TRY_SCENARIO=ember-2.0.1
-  - EMBER_TRY_SCENARIO=ember-2.0.2
-  - EMBER_TRY_SCENARIO=ember-2.1.0
-  - EMBER_TRY_SCENARIO=ember-2.1.1
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
-
-matrix:
-  fast_finish: true
-  allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-canary
-    - env: EMBER_TRY_SCENARIO=ember-1.13.0
+  - COVERAGE=true ember test
 
 before_install:
   - npm config set spin false
@@ -54,7 +28,7 @@ install:
 script:
   # Usually, it's ok to finish the test scenario without reverting
   #  to the addon's original dependency state, skipping "cleanup".
-  - ember try $EMBER_TRY_SCENARIO test --skip-cleanup
+  - ember try:each
 
 after_script:
   - codeclimate-test-reporter < lcov.dat
