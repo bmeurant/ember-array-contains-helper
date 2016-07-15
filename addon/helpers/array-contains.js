@@ -57,7 +57,7 @@ export default Ember.Helper.extend({
 
     // if array undefined or null, we test against an empty array. This is particularily usefull
     // if the test occurs before a promise is resolved, for example
-    if (Ember.isNone(array)) array = Ember.A([]);
+    if (Ember.isNone(array)) { array = Ember.A([]); }
 
     Ember.assert('First parameter should be a valid array', Ember.isArray(array));
 
@@ -81,11 +81,11 @@ export default Ember.Helper.extend({
   },
 
   recompute: function () {
-    if (this._stream) this._stream.notify();
+    if (this._stream) { this._stream.notify(); }
   },
 
   destroy() {
-    if (this.teardown) this.teardown();
+    if (this.teardown) { this.teardown(); }
     this._super(...arguments);
   },
 
@@ -102,8 +102,8 @@ export default Ember.Helper.extend({
     this.set('_array', array);
 
     // Remove existing observers, if any
-    if (this.teardown) this.teardown();
-    if (this.teardownProperty) this.teardownProperty();
+    if (this.teardown) { this.teardown(); }
+    if (this.teardownProperty) { this.teardownProperty(); }
 
     // Install observer on the array itself : run when adding / removing items to the array
     let arrayPath = '_array.[]';
