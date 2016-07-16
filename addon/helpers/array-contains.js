@@ -1,5 +1,10 @@
-/*jshint curly: false */
-import Ember from "ember";
+// Note: exported packages are defined in ember.js/vendor/ember/shims.js
+import { isNone } from 'ember-utils';
+import { A as emberArray, isEmberArray as isArray } from 'ember-array/utils';
+import { assert } from 'ember-metal/utils';
+import Helper from 'ember-helper';
+import set from 'ember-metal/set';
+import { addObserver, removeObserver } from 'ember-metal/observer';
 
 /**
  * Helper proving a way to test the presence of an item in an array.
@@ -28,7 +33,7 @@ import Ember from "ember";
  * @public
  * @class ArrayContainsHelper
  */
-export default Ember.Helper.extend({
+export default Helper.extend({
 
   /**
    * Test if an array contains an object, eventually based on one of this object property / value
@@ -50,16 +55,16 @@ export default Ember.Helper.extend({
    * not null and not an array.
    */
   compute(params, hash) {
-    Ember.assert('params should be a not null valid array', Ember.isArray(params));
+    assert('params should be a not null valid array', isArray(params));
 
     let array = params[0];
     let value = params[1];
 
     // if array undefined or null, we test against an empty array. This is particularily usefull
     // if the test occurs before a promise is resolved, for example
-    if (Ember.isNone(array)) { array = Ember.A([]); }
+    if (isNone(array)) { array = emberArray([]); }
 
-    Ember.assert('First parameter should be a valid array', Ember.isArray(array));
+    assert('First parameter should be a valid array', isArray(array));
 
     let property = hash ? hash.property : null;
     let contains = false;
@@ -67,14 +72,14 @@ export default Ember.Helper.extend({
 
     // Wrap into an Ember.Array to use advanced method
     // Note: This operation does not modify the original array
-    let emberArray = Ember.A(array);
+    let wrappedArray = emberArray(array);
 
     if (property) {
       // Property provided, test the property
-      contains = emberArray.isAny(property, value);
+      contains = wrappedArray.isAny(property, value);
     } else {
       // No property provided, test the full object
-      contains = emberArray.contains(value);
+      contains = wrappedArray.contains(value);
     }
 
     return contains;
@@ -99,7 +104,7 @@ export default Ember.Helper.extend({
    * @private
    */
   setupRecompute(array, property) {
-    this.set('_array', array);
+    set(this, '_array', array);
 
     // Remove existing observers, if any
     if (this.teardown) { this.teardown(); }
@@ -107,19 +112,19 @@ export default Ember.Helper.extend({
 
     // Install observer on the array itself : run when adding / removing items to the array
     let arrayPath = '_array.[]';
-    this.addObserver(arrayPath, this, this.recompute);
+    addObserver(this, arrayPath, this, this.recompute);
     // define method to remove observer
     this.teardown = () => {
-      this.removeObserver(arrayPath, this, this.recompute);
+      removeObserver(this, arrayPath, this, this.recompute);
     };
 
     if (property) {
       // Install observer on the given property, if any
       let propertyPath = `_array.@each.${property}`;
-      this.addObserver(propertyPath, this, this.recompute);
+      addObserver(this, propertyPath, this, this.recompute);
       // define method to remove observer
       this.teardownProperty = () => {
-        this.removeObserver(propertyPath, this, this.recompute);
+        removeObserver(this, propertyPath, this, this.recompute);
       };
     }
   }
