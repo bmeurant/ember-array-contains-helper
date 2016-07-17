@@ -5,7 +5,7 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-array-contains-helper.svg)](http://emberobserver.com/addons/ember-array-contains-helper)
 
 [![Code Climate](https://codeclimate.com/github/bmeurant/ember-array-contains-helper/badges/gpa.svg)](https://codeclimate.com/github/bmeurant/ember-array-contains-helper)
-[![Test Coverage](https://codeclimate.com/github/bmeurant/ember-array-contains-helper/badges/coverage.svg)](https://codeclimate.com/github/bmeurant/ember-array-contains-helper/coverage)
+[![Test Coverage](https://coveralls.io/repos/github/bmeurant/ember-array-contains-helper/badge.svg?branch=master&service=github)](https://coveralls.io/github/bmeurant/ember-array-contains-helper?branch=master)
 
 [![Dependency Status](https://david-dm.org/bmeurant/ember-array-contains-helper.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper)
 [![Dependency Status](https://david-dm.org/bmeurant/ember-array-contains-helper/dev-status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper#info=devDependencies)
