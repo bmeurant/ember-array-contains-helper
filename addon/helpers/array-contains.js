@@ -57,6 +57,7 @@ export default Helper.extend({
   compute(params, hash) {
     assert('params should be a not null valid array', isArray(params));
 
+    // FIXME: use array destructuring when coverage tooling will support it
     let array = params[0];
     let value = params[1];
 
@@ -70,7 +71,7 @@ export default Helper.extend({
     let contains = false;
     this.setupRecompute(array, property);
 
-    // Wrap into an Ember.Array to use advanced method
+    // Wrap into an Ember.Array to use advanced methods while supporting disabling prototype extensions
     // Note: This operation does not modify the original array
     let wrappedArray = emberArray(array);
 
