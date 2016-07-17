@@ -32,3 +32,4 @@ script:
 
 after_script:
   - codeclimate-test-reporter < lcov.dat
+  - cat lcov.dat | node_modules/coveralls/bin/coveralls.js
