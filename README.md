@@ -150,6 +150,18 @@ export default Ember.Route.extend({
 
 Note that null or undefined are considered acceptable and equivalent values for 'value' parameter (resolve both to null)
 
+## Contributing
+
+Thank you!!!
+
+ - Open an Issue for discussion first if you're unsure a feature/fix is wanted.
+ - Branch off of `master` (Use descriptive branch names)
+ - Follow [DockYard Ember.js Style Guide](https://github.com/DockYard/styleguides/blob/master/engineering/ember.md)
+ - Test your features / fixes
+ - Use [Angular-Style Commits](https://github.com/angular/angular.js/blob/v1.4.8/CONTRIBUTING.md#-submission-guidelines). Use correct type, short subject and motivated body.
+ - PR against `master`
+ - Linting & tests must pass, coverage and codeclimate should be preserved
+
 ## Development
 
 ### Installation
