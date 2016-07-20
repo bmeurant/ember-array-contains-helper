@@ -9,8 +9,17 @@
 .ember-cli
 .gitignore
 .jshintrc
+.eslintrc.js
 .watchmanconfig
 .travis.yml
 bower.json
 ember-cli-build.js
 testem.js
+.vscodeignore
+/typings
+jsconfig.json
+github-pages.sh
+.codeclimate.yml
+.coveralls.yml
+lcov.dat
+coverage.json
