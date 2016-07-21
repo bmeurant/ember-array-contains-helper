@@ -1,0 +1,28 @@
+{
+  "name": "ember-array-contains-helper",
+  "description": "Ember helper to test the presence of an item in an array",
+  "version": "1.2.0",
+  "options": {
+    "enabledEnvironments": [
+      "development",
+      "production"
+    ],
+    "paths": [
+      "addon"
+    ],
+    "external": {
+      "data": [{
+        "base": "http://emberjs.com/api/",
+        "json": "http://builds.emberjs.com/tags/v2.7.0/ember-docs.json"
+      }]
+    },
+    "themedir": "node_modules/yuidoc-ember-cli-theme",
+    "helpers": ["node_modules/yuidoc-ember-cli-theme/helpers.js"],
+    "exclude": "vendor",
+    "outdir": "docs",
+    "linkNatives": true,
+    "quiet": true,
+    "parseOnly": false,
+    "lint": false
+  }
+}

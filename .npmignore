@@ -23,3 +23,5 @@ github-pages.sh
 .coveralls.yml
 lcov.dat
 coverage.json
+/docs
+yuidoc.json
