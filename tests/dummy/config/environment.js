@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dummy',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     host: '/',
     EmberENV: {
@@ -37,7 +37,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
+    ENV.rootURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -48,7 +48,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = 'http://baptiste.meurant.io/ember-array-contains-helper',
+    ENV.rootURL = 'http://baptiste.meurant.io/ember-array-contains-helper',
     ENV.locationType = 'hash',
     ENV.host = 'http://baptiste.meurant.io/ember-array-contains-helper',
     ENV['ember-cli-mirage'] = {
