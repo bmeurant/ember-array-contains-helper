@@ -1,10 +1,14 @@
 language: node_js
+
 node_js:
   - '4'
+
 sudo: required
+
 cache:
   directories:
     - node_modules
+
 addons:
   code_climate:
     repo_token: $CODECLIMATE_REPO_TOKEN
@@ -13,19 +17,26 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+
 env:
   - COVERAGE=true ember test
+
 before_install:
   - 'export DISPLAY=:99.0'
   - sh -e /etc/init.d/xvfb start
   - npm config set spin false
   - npm install -g bower
+  - bower --version
+
 install:
   - npm install
   - bower install
+
 script:
   - 'ember try:each'
+
 after_script:
   - codeclimate-test-reporter < lcov.dat
   - cat lcov.dat | node_modules/coveralls/bin/coveralls.js
+
 dist: trusty
