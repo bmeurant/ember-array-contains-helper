@@ -19,7 +19,23 @@ addons:
       - google-chrome-stable
 
 env:
-  - COVERAGE=true ember test
+  - EMBER_TRY_SCENARIO=default
+  - EMBER_TRY_SCENARIO=ember-1.13
+  - EMBER_TRY_SCENARIO=ember-2.0
+  - EMBER_TRY_SCENARIO=ember-2.1
+  - EMBER_TRY_SCENARIO=ember-2.2
+  - EMBER_TRY_SCENARIO=ember-2.3
+  - EMBER_TRY_SCENARIO=ember-2.4
+  - EMBER_TRY_SCENARIO=ember-2.5
+  - EMBER_TRY_SCENARIO=ember-2.6
+  - EMBER_TRY_SCENARIO=ember-release
+  - EMBER_TRY_SCENARIO=ember-beta
+  - EMBER_TRY_SCENARIO=ember-canary
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
   - 'export DISPLAY=:99.0'
@@ -33,7 +49,7 @@ install:
   - bower install
 
 script:
-  - 'ember try:each'
+  - ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
 
 after_script:
   - codeclimate-test-reporter < lcov.dat
