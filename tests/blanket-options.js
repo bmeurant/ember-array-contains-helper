@@ -1,4 +1,5 @@
-/* globals blanket, module */
+/* eslint-env node */
+/* global blanket, module */
 
 var options = {
   modulePrefix: 'ember-array-contains-helper',
