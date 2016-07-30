@@ -1,4 +1,17 @@
-languages:
-  JavaScript: true
+engines:
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+duplication:
+  enabled: true
+  config:
+    languages:
+    - javascript
+ratings:
+  paths:
+  - "**.js"
 exclude_paths:
-- "tests/*"
+- config/*
+- tests/dummy/config/*
+- vendor/**/*
