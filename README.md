@@ -11,15 +11,14 @@
 [![Dependency Status](https://david-dm.org/bmeurant/ember-array-contains-helper.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper)
 [![Dev Dependency Status](https://david-dm.org/bmeurant/ember-array-contains-helper/dev-status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper#info=devDependencies)
 
-Ember HTMLBars template helper allowing to test if an array contains a particular element.
+Ember template helper allowing to test if an array contains a particular element.
 
 ```hbs
 {{array-contains model 'value' property='title'}}
 ``` 
  
-This helper allows to test the presence of a literal, an entire object or an object with
-a specific property set at a specific value, can be found into the given array. Objects can
-be native or Ember objects.
+This helper allows to test the presence of a literal, a full object or a specific property/value of 
+an object inside a given array. Objects can be native or Ember objects.
 
 ## Observing
 
@@ -51,10 +50,9 @@ not rerun the helper. This is probably due to [this bug](https://github.com/embe
 Where:
 
 * `<array>` is the array to search into. Should be a valid not null array.
-* `<value>` is the value which is supposed to be contained or not in the arrray. Could be an object or a literal.
-Could be null or undefined
+* `<value>` is the value which is supposed to be contained in the arrray. Could be an object or a literal, null or undefined.
 * `<property>` is an option: if set, the search is done on the presence of an object containing a
-property `<property>` with the value `<value>`. If not, the search is done of the presence of the entire
+property `<property>` with the value `<value>`. If not, the search is done of the presence of the full
 `<value>` (object or literal)
 
 This helper could be:
