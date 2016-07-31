@@ -68,7 +68,7 @@ export default Helper.extend({
     assert('First parameter should be a valid array', isArray(array));
 
     let property = hash ? hash.property : null;
-    let contains = false;
+    let contained = false;
     this.setupRecompute(array, property);
 
     // Wrap into an Ember.Array to use advanced methods while supporting disabling prototype extensions
@@ -77,13 +77,16 @@ export default Helper.extend({
 
     if (property) {
       // Property provided, test the property
-      contains = wrappedArray.isAny(property, value);
+      contained = wrappedArray.isAny(property, value);
     } else {
       // No property provided, test the full object
-      contains = wrappedArray.contains(value);
+
+      // Use includes if it exists (ember >= 2.8), use legacy contains otherwise
+      let containsFct = wrappedArray.includes || wrappedArray.contains;
+      contained = containsFct.call(wrappedArray, value);
     }
 
-    return contains;
+    return contained;
   },
 
   recompute: function () {
