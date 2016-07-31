@@ -49,7 +49,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.rootURL = 'http://baptiste.meurant.io/ember-array-contains-helper',
+    ENV.rootURL = 'http://baptiste.meurant.io/ember-array-contains-helper/',
     ENV.locationType = 'hash',
     ENV.host = 'http://baptiste.meurant.io/ember-array-contains-helper',
     ENV['ember-cli-mirage'] = {
