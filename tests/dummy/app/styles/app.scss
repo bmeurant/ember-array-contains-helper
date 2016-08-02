@@ -26,8 +26,12 @@ h3 {
   min-height: 20px;
 }
 
-.sources {
+.sources, .docs {
   font-size: 14px;
+}
+
+.docs {
+  margin-right: 15px;
 }
 
 md-content {

@@ -20,6 +20,9 @@ testem.log
 lcov.dat
 coverage.json
 
+# docs
+/docs
+
 # ide
 /.idea
 *.iml

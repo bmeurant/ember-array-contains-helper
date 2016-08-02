@@ -8,8 +8,8 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-array-contains-helper.svg)](http://emberobserver.com/addons/ember-array-contains-helper)
 [![Code Climate](https://codeclimate.com/github/bmeurant/ember-array-contains-helper/badges/gpa.svg)](https://codeclimate.com/github/bmeurant/ember-array-contains-helper)
 [![Test Coverage](https://coveralls.io/repos/github/bmeurant/ember-array-contains-helper/badge.svg?branch=master&service=github)](https://coveralls.io/github/bmeurant/ember-array-contains-helper?branch=master)
-[![Dependency Status](https://david-dm.org/bmeurant/ember-array-contains-helper.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper)
-[![Dev Dependency Status](https://david-dm.org/bmeurant/ember-array-contains-helper/dev-status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper#info=devDependencies)
+[![dependencies](https://david-dm.org/bmeurant/ember-array-contains-helper/status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper)
+[![devDependencies](https://david-dm.org/bmeurant/ember-array-contains-helper/dev-status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper?type=dev)
 
 Ember template helper allowing to test if an array contains a particular element.
 
@@ -24,6 +24,10 @@ an object inside a given array. Objects can be native or Ember objects.
 
 This addon installs observers on the provided array to listen any external change made on it. It includes any addition/removal
 of an item and, if a property is specified, any change of the property of any array element.
+
+## Documentation
+
+The documentation is available [here](http://baptiste.meurant.io/ember-array-contains-helper/docs).
 
 ## Samples & Demo
 
@@ -148,6 +152,10 @@ export default Ember.Route.extend({
 
 Note that null or undefined are considered acceptable and equivalent values for 'value' parameter (resolve both to null)
 
+## Changelog
+
+Changelog can be found [here](https://github.com/bmeurant/ember-array-contains-helper/blob/master/CHANGELOG.md)
+
 ## Contributing
 
 Thank you!!!
@@ -155,6 +163,7 @@ Thank you!!!
  - Open an Issue for discussion first if you're unsure a feature/fix is wanted.
  - Branch off of `master` (Use descriptive branch names)
  - Follow [DockYard Ember.js Style Guide](https://github.com/DockYard/styleguides/blob/master/engineering/ember.md)
+ - if needed, add or update documentation following [YUIDoc syntax](http://yui.github.io/yuidoc/syntax/)
  - Test your features / fixes
  - Use [Angular-Style Commits](https://github.com/angular/angular.js/blob/v1.4.8/CONTRIBUTING.md#-submission-guidelines). Use correct type, short subject and motivated body.
  - PR against `master`
@@ -184,5 +193,11 @@ Thank you!!!
 ### Building
 
 * `ember build`
+
+### Generating documentation
+
+This addon uses [YUIDoc](http://yui.github.io/yuidoc/) via [ember-cli-yuidoc](https://github.com/cibernox/ember-cli-yuidoc). [yuidoc-ember-cli-theme](https://github.com/Turbo87/yuidoc-ember-cli-theme) makes it pretty.
+Docs generation is enabled in development mode via `ember build` or `ember serve` with or without --docs auto refresh option. It can also be explicitely generated with `ember ember-cli-yuidoc`
+command.
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
