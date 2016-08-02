@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ember-array-contains-helper</title>
+    <link rel="stylesheet" href="./assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="./assets/css/main.css" id="site_styles">
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div class="yui3-g">
+        <div id="sidebar" class="yui3-u">
+            <div class="logo">
+              <a href="./index.html">
+                  ember-array-contains-helper
+              </a>
+            </div>
+            
+            <div id="modules" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Modules</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="./modules/ember-array-contains-helper.html">ember-array-contains-helper</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="classes" class="sidebox">
+                <div class="hd">
+                    <h2 class="no-toc">Classes</h2>
+                </div>
+                <div class="bd">
+                    <ul>
+                            <li><a href="./classes/ArrayContainsHelper.html">ArrayContainsHelper</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            <div class="version-info">
+              Version: 1.1.0.27ff101a
+            </div>
+            
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h1>ember-array-contains-helper</h1>
+<p><a href="https://travis-ci.org/bmeurant/ember-array-contains-helper"><img src="https://travis-ci.org/bmeurant/ember-array-contains-helper.svg?branch=master" alt="Build Status"></a>
+<a href="https://www.npmjs.com/package/ember-array-contains-helper"><img src="https://img.shields.io/npm/v/ember-array-contains-helper.svg" alt="npm version"></a>
+<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+<a href="http://embadge.io/"><img src="https://embadge.io/v1/badge.svg?start=1.13.1&amp;label=ember" alt="Ember badge"></a></p>
+<p><a href="http://emberobserver.com/addons/ember-array-contains-helper"><img src="http://emberobserver.com/badges/ember-array-contains-helper.svg" alt="Ember Observer Score"></a>
+<a href="https://codeclimate.com/github/bmeurant/ember-array-contains-helper"><img src="https://codeclimate.com/github/bmeurant/ember-array-contains-helper/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://coveralls.io/github/bmeurant/ember-array-contains-helper?branch=master"><img src="https://coveralls.io/repos/github/bmeurant/ember-array-contains-helper/badge.svg?branch=master&amp;service=github" alt="Test Coverage"></a>
+<a href="https://david-dm.org/bmeurant/ember-array-contains-helper"><img src="https://david-dm.org/bmeurant/ember-array-contains-helper/status.svg" alt="dependencies"></a>
+<a href="https://david-dm.org/bmeurant/ember-array-contains-helper?type=dev"><img src="https://david-dm.org/bmeurant/ember-array-contains-helper/dev-status.svg" alt="devDependencies"></a></p>
+<p>Ember template helper allowing to test if an array contains a particular element.</p>
+<pre><code class="language-hbs">{{array-contains model 'value' property='title'}}
+</code></pre>
+<p>This helper allows to test the presence of a literal, a full object or a specific property/value of
+an object inside a given array. Objects can be native or Ember objects.</p>
+<h2>Observing</h2>
+<p>This addon installs observers on the provided array to listen any external change made on it. It includes any addition/removal
+of an item and, if a property is specified, any change of the property of any array element.</p>
+<h2>Documentation</h2>
+<p>The documentation is available <a href="http://baptiste.meurant.io/ember-array-contains-helper/docs">here</a>.</p>
+<h2>Samples &amp; Demo</h2>
+<ul>
+<li>A dummy demo application containing syntax samples runs <a href="http://baptiste.meurant.io/ember-array-contains-helper/">here</a></li>
+<li>The source code of this demo can be found <a href="https://github.com/bmeurant/ember-array-contains-helper/blob/master/tests/dummy/app/templates/application.hbs">here</a></li>
+</ul>
+<h2>Compatibility</h2>
+<p>This helper is tested and compatible with <strong>1.13.1+ ember versions</strong>. See travis CI build and report <a href="https://travis-ci.org/bmeurant/ember-array-contains-helper">here</a></p>
+<p>Note that the helper basically works in <strong>1.13.0 ember version</strong> but the changes on the array (add/remove/change property) will
+not rerun the helper. This is probably due to <a href="https://github.com/emberjs/ember.js/pull/11445">this bug</a>.</p>
+<h2>Installation</h2>
+<ul>
+<li><code>ember install ember-array-contains-helper</code></li>
+</ul>
+<h2>Usage</h2>
+<pre><code class="language-hbs">{{array-contains &lt;array&gt; &lt;value&gt; [property='&lt;property&gt;']}}
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><code>&lt;array&gt;</code> is the array to search into. Should be a valid not null array.</li>
+<li><code>&lt;value&gt;</code> is the value which is supposed to be contained in the arrray. Could be an object or a literal, null or undefined.</li>
+<li><code>&lt;property&gt;</code> is an option: if set, the search is done on the presence of an object containing a
+property <code>&lt;property&gt;</code> with the value <code>&lt;value&gt;</code>. If not, the search is done of the presence of the full
+<code>&lt;value&gt;</code> (object or literal)</li>
+</ul>
+<p>This helper could be:</p>
+<ul>
+<li>
+<p>used standalone:</p>
+<pre><code class="language-hbs">{{array-contains model 'value' property='title'}}
+</code></pre>
+</li>
+<li>
+<p>or, more often, combined with the <code>if</code> helper:</p>
+<pre><code class="language-hbs">{{if (array-contains model 'value' property='title') 'something' 'something else'}}
+</code></pre>
+</li>
+</ul>
+<p>Depending on the given parameters, the test is made on</p>
+<ul>
+<li>the presence of a literal:</li>
+</ul>
+<pre><code class="language-javascript">// routes/application.js
+
+import Ember from 'ember';
+export default Ember.Route.extend({
+  model () {
+    return ['Akira', 'Blacksad', 'CalvinAndHobbes'];
+  }
+});
+</code></pre>
+<pre><code class="language-hbs">{{!-- templates/application.hbs --}}
+
+{{array-contains model 'Akira'}}
+</code></pre>
+<ul>
+<li>the presence of the object itself:</li>
+</ul>
+<pre><code class="language-javascript">// routes/application.js
+
+import Ember from 'ember';
+import Comic from '../models/comic';
+
+let blackSad = Comic.create({
+  title: 'Blacksad'
+});
+
+let calvinAndHobbes = Comic.create({
+  title: 'Calvin and Hobbes'
+});
+
+let akira = Comic.create({
+  title: 'Akira'
+});
+
+export default Ember.Route.extend({
+  model () {
+    return [akira, blacksad, calvinAndHobbes];
+  },
+  
+  setupController (controller, model) {
+    controller.set('calvinAndHobbes', calvinAndHobbes);
+    this._super(controller, model);
+  },
+});
+</code></pre>
+<pre><code class="language-hbs">{{!-- templates/application.hbs --}}
+   
+{{array-contains model calvinAndHobbes}}
+</code></pre>
+<ul>
+<li>the presence of an object containing a specific property with a specific value using the option <code>property</code>:</li>
+</ul>
+<pre><code class="language-javascript">// routes/application.js
+
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model () {
+    return this.store.findAll('comic');
+  }
+});
+</code></pre>
+<pre><code class="language-hbs">{{!-- templates/application.hbs --}}
+   
+{{array-contains model 'Blacksad' property='title'}}
+</code></pre>
+<p>Note that null or undefined are considered acceptable and equivalent values for 'value' parameter (resolve both to null)</p>
+<h2>Changelog</h2>
+<p>Changelog can be found <a href="https://github.com/bmeurant/ember-array-contains-helper/blob/master/CHANGELOG.md">here</a></p>
+<h2>Contributing</h2>
+<p>Thank you!!!</p>
+<ul>
+<li>Open an Issue for discussion first if you're unsure a feature/fix is wanted.</li>
+<li>Branch off of <code>master</code> (Use descriptive branch names)</li>
+<li>Follow <a href="https://github.com/DockYard/styleguides/blob/master/engineering/ember.md">DockYard Ember.js Style Guide</a></li>
+<li>if needed, add or update documentation following <a href="http://yui.github.io/yuidoc/syntax/">YUIDoc syntax</a></li>
+<li>Test your features / fixes</li>
+<li>Use <a href="https://github.com/angular/angular.js/blob/v1.4.8/CONTRIBUTING.md#-submission-guidelines">Angular-Style Commits</a>. Use correct type, short subject and motivated body.</li>
+<li>PR against <code>master</code></li>
+<li>Linting &amp; tests must pass, coverage and codeclimate should be preserved</li>
+</ul>
+<h2>Development</h2>
+<h3>Installation</h3>
+<ul>
+<li><code>git clone https://github.com/bmeurant/ember-array-contains-helper</code></li>
+<li><code>npm install</code></li>
+<li><code>bower install</code></li>
+</ul>
+<h3>Running dummy demo app</h3>
+<ul>
+<li><code>npm install</code></li>
+<li><code>bower install</code></li>
+<li><code>ember server</code></li>
+<li>Visit your app at http://localhost:4200.</li>
+</ul>
+<h3>Running Tests</h3>
+<ul>
+<li><code>npm test</code> (Runs <code>ember try:testall</code> to test your addon against multiple Ember versions)</li>
+<li><code>ember test</code></li>
+<li><code>ember test --server</code></li>
+</ul>
+<h3>Building</h3>
+<ul>
+<li><code>ember build</code></li>
+</ul>
+<h3>Generating documentation</h3>
+<p>This addon uses <a href="http://yui.github.io/yuidoc/">YUIDoc</a> via <a href="https://github.com/cibernox/ember-cli-yuidoc">ember-cli-yuidoc</a>. <a href="https://github.com/Turbo87/yuidoc-ember-cli-theme">yuidoc-ember-cli-theme</a> makes it pretty.
+Docs generation is enabled in development mode via <code>ember build</code> or <code>ember serve</code> with or without --docs auto refresh option. It can also be explicitely generated with <code>ember ember-cli-yuidoc</code>
+command.</p>
+<p>For more information on using ember-cli, visit <a href="http://www.ember-cli.com/">http://www.ember-cli.com/</a>.</p>
+
+</div>
+        </div>
+    </div>
+</div>
+<script src="./assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="./assets/js/yui-prettify.js"></script>
+</body>
+</html>
