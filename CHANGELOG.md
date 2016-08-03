@@ -1,6 +1,21 @@
 # Changelog
 
 
+## v1.2.0 (August 3rd, 2016)
+
+### Pull Requests
+
+- [#18](https://github.com/bmeurant/ember-array-contains-helper/pull/18)  Prefer includes to contains  *by [Baptiste Meurant](https://github.com/bmeurant)*
+
+#### Commits
+
+- [27ff101a](https://github.com/bmeurant/ember-array-contains-helper/commit/27ff101aeead2c56d08aba426c6cae24b32c29fe) **docs(yuidocs)**: setup yuidoc & theme, make documentation compliant (#5) *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [3be72a20](https://github.com/bmeurant/ember-array-contains-helper/commit/3be72a208d47032c500a4902fcb0818cae07b58a) **feat(includes)**: prefer includes to contains (#18) *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [220c0d9e](https://github.com/bmeurant/ember-array-contains-helper/commit/220c0d9eb0886fa3f8074c12b3117011ae92e1e9) **docs(readme)**: update readme *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [f4b71e05](https://github.com/bmeurant/ember-array-contains-helper/commit/f4b71e057de302f9979066bcb3bdba41cc18f896) **style(array-contains)**: add some comments *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [c4900805](https://github.com/bmeurant/ember-array-contains-helper/commit/c490080573303b77b2ec0ea4535f9111ab503447) **docs(readme)**: update badges *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [201f17b4](https://github.com/bmeurant/ember-array-contains-helper/commit/201f17b43224195c25a1e35efff13ab8ab2b0cfa) **refactor(array-contains)**: use unitary imports instead of globals *by [Baptiste Meurant](https://github.com/bmeurant)*
+
 ## v1.1.0 (July 3rd, 2016)
 
 - [7e91d68](https://github.com/bmeurant/ember-array-contains-helper/commit/7e91d68dc4615e698f69598ed08a2ad9c8877aeb) Update bower dependencies
