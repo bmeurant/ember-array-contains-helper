@@ -1,6 +1,7 @@
 # Changelog
 
-## v1.1.0 (July 3, 2016)
+
+## v1.1.0 (July 3rd, 2016)
 
 - [7e91d68](https://github.com/bmeurant/ember-array-contains-helper/commit/7e91d68dc4615e698f69598ed08a2ad9c8877aeb) Update bower dependencies
 - [dc26c18](https://github.com/bmeurant/ember-array-contains-helper/commit/dc26c181b5d97bedcb00279e44e6be86fcb80670) [TOOLING] Switch to ember-cli-mirage 0.2.1
