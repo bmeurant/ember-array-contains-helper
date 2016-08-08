@@ -90,10 +90,6 @@ export default Helper.extend({
     return contained;
   },
 
-  recompute: function () {
-    if (this._stream) { this._stream.notify(); }
-  },
-
   destroy() {
     if (this.teardown) { this.teardown(); }
     this._super(...arguments);
