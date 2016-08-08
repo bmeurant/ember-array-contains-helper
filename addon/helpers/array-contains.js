@@ -92,6 +92,7 @@ export default Helper.extend({
 
   destroy() {
     if (this.teardown) { this.teardown(); }
+    if (this.teardownProperty) { this.teardownProperty(); }
     this._super(...arguments);
   },
 
