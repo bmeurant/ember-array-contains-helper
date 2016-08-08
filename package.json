@@ -46,7 +46,7 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
-    "ember-paper": "^0.2.14",
+    "ember-paper": "1.0.0-alpha.3",
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.11",
     "yuidoc-ember-cli-theme": "Turbo87/yuidoc-ember-cli-theme"

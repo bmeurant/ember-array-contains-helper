@@ -1,5 +1,4 @@
 {{#paper-nav-container}}
-
   {{#paper-toolbar}}
     <div class="md-toolbar-tools">
 
@@ -9,9 +8,9 @@
       </div>
 
       <div id="buttons">
-        {{paper-button action='toggleAkira' raised=true label="Remove/Add Akira"}}
-        {{paper-button action='toggleBlacksad' raised=true label="Change Blacksad title"}}
-        {{paper-button action='toggleBlueberry' raised=true label="Add/Remove Blueberry"}}
+        {{paper-button onClick=(action 'updateAkira') raised=true label="Remove/Add Akira"}}
+        {{paper-button onClick=(action 'updateBlacksad') raised=true label="Change Blacksad title"}}
+        {{paper-button onClick=(action 'updateBlueberry') raised=true label="Add/Remove Blueberry"}}
       </div>
 
       <a href="docs" class="docs">
@@ -29,7 +28,6 @@
 {{/paper-nav-container}}
 
 {{#paper-content}}
-
   <div class="samples">
     <div class="sample">
       <h3>Comics List (literals): </h3>
@@ -184,5 +182,4 @@
       {{code-snippet name="data.hbs"}}
     </div>
   </div>
-
 {{/paper-content}}

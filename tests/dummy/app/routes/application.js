@@ -34,6 +34,7 @@ export default Ember.Route.extend({
   comicsLiterals: [akiraLit, blacksadLit, calvinHandHobbesLit],
   comicsNative: Ember.A([akira, blacksad, calvinAndHobbes]),
   comicsNoData: [akiraND, blackSadND, calvinAndHobbesND],
+
   akira: true,
   blacksad: true,
   blueberry: false,
