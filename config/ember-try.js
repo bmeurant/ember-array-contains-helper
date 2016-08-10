@@ -5,44 +5,44 @@ module.exports = {
   scenarios: [
     {
       name: 'default',
-      dependencies: { }
+      bower: {
+        dependencies: { }
+      }
     },
     {
       name: 'ember-1.13',
-      dependencies: { 'ember': '1.13.11' }
+      bower: {
+        dependencies: {
+          'ember': '~1.13.0'
+        }
+      }
     },
     {
       name: 'ember-2.0',
-      dependencies: { 'ember': '2.0.3' }
+      bower: {
+        dependencies: {
+          'ember': '~2.0.0'
+        },
+        resolutions: {
+          'ember': '~2.0.0'
+        }
+      }
     },
     {
-      name: 'ember-2.1',
-      dependencies: { 'ember': '2.1.2' }
-    },
-    {
-      name: 'ember-2.2',
-      dependencies: { 'ember': '2.2.2' }
-    },
-    {
-      name: 'ember-2.3',
-      dependencies: { 'ember': '2.3.2' }
-    },
-    {
-      name: 'ember-2.4',
-      dependencies: { 'ember': '2.4.6' }
-    },
-    {
-      name: 'ember-2.5',
-      dependencies: { 'ember': '2.5.1' }
-    },
-    {
-      name: 'ember-2.6',
-      dependencies: { 'ember': '2.6.2' }
+      name: 'ember-2.4-lts',
+      bower: {
+        dependencies: {
+          'ember': '~2.4.0'
+        },
+        resolutions: {
+          'ember': '~2.4.0'
+        }
+      }
     },
     {
       name: 'ember-release',
       dependencies: {
-        'ember': 'components/ember#release'
+        'ember': 'release'
       },
       resolutions: {
         'ember': 'release'
@@ -50,8 +50,9 @@ module.exports = {
     },
     {
       name: 'ember-beta',
+      allowedToFail: true,
       dependencies: {
-        'ember': 'components/ember#beta'
+        'ember': 'beta'
       },
       resolutions: {
         'ember': 'beta'
@@ -59,8 +60,9 @@ module.exports = {
     },
     {
       name: 'ember-canary',
+      allowedToFail: true,
       dependencies: {
-        'ember': 'components/ember#canary'
+        'ember': 'ember#canary'
       },
       resolutions: {
         'ember': 'canary'
