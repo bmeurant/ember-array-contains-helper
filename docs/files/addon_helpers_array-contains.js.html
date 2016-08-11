@@ -46,7 +46,7 @@
             
             
             <div class="version-info">
-              Version: 1.1.0.27ff101a
+              Version: 1.2.0.73bc6605
             </div>
             
         </div>
@@ -149,12 +149,9 @@ export default Helper.extend({
     return contained;
   },
 
-  recompute: function () {
-    if (this._stream) { this._stream.notify(); }
-  },
-
   destroy() {
     if (this.teardown) { this.teardown(); }
+    if (this.teardownProperty) { this.teardownProperty(); }
     this._super(...arguments);
   },
 

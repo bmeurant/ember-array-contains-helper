@@ -2,7 +2,7 @@
     "project": {
         "name": "ember-array-contains-helper",
         "description": "Ember helper to test the presence of an item in an array",
-        "version": "1.1.0.27ff101a"
+        "version": "1.2.0.73bc6605"
     },
     "files": {
         "addon/helpers/array-contains.js": {
@@ -84,7 +84,7 @@
         },
         {
             "file": "addon/helpers/array-contains.js",
-            "line": 102,
+            "line": 99,
             "description": "Install and clean observers to be able to recompute result if array changes :\ncontent added or removed or observed property modified.",
             "itemtype": "method",
             "name": "setupRecompute",
