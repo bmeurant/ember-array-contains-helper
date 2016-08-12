@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  "framework": "qunit",
+  "framework": "mocha",
   "test_page": "tests/index.html?hidepassed&coverage",
   "disable_watching": true,
   "launch_in_ci": [
