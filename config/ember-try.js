@@ -14,6 +14,9 @@ module.exports = {
       bower: {
         dependencies: {
           'ember': '~1.13.0'
+        },
+        resolutions: {
+          'ember': '~1.13.0'
         }
       }
     },
@@ -51,21 +54,37 @@ module.exports = {
     {
       name: 'ember-beta',
       allowedToFail: true,
-      dependencies: {
-        'ember': 'beta'
-      },
-      resolutions: {
-        'ember': 'beta'
+      bower: {
+	dependencies: {
+          'ember': 'beta'
+        },
+        resolutions: {
+          'ember': 'beta'
+        }
       }
     },
     {
       name: 'ember-canary',
       allowedToFail: true,
-      dependencies: {
-        'ember': 'ember#canary'
-      },
-      resolutions: {
-        'ember': 'canary'
+      bower: {
+        dependencies: {
+	  'ember': 'canary'
+	},
+        resolutions: {
+	  'ember': 'canary'
+	}
+      }
+    },
+    {
+      name: 'ember-alpha',
+      allowedToFail: true,
+      bower: {
+        dependencies: {
+          'ember': 'alpha'
+        },
+        resolutions: {
+          'ember': 'alpha'
+        }
       }
     }
   ]
