@@ -81,10 +81,7 @@ export default Helper.extend({
       contained = wrappedArray.isAny(property, value);
     } else {
       // No property provided, test the full object
-
-      // Use includes if it exists (ember >= 2.8), use legacy contains otherwise
-      let containsFct = wrappedArray.includes || wrappedArray.contains;
-      contained = containsFct.call(wrappedArray, value);
+      contained = wrappedArray.includes(value);
     }
 
     return contained;
