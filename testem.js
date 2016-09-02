@@ -3,7 +3,7 @@
 
 module.exports = {
   "framework": "mocha",
-  "test_page": "tests/index.html?hidepassed&coverage",
+  "test_page": "tests/index.html?hidepassed",
   "disable_watching": true,
   "launch_in_ci": [
     "Chrome"
@@ -11,5 +11,8 @@ module.exports = {
   "launch_in_dev": [
     "PhantomJS",
     "Chrome"
-  ]
+  ],
+  "browser_args": {
+    'Chrome': [ '--disable-gpu']
+  }
 };
