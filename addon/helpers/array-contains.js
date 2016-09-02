@@ -55,12 +55,10 @@ export default Helper.extend({
    * @throws {Ember.Error} if params is null or not an array or if the given array (from ``params[0]``) is
    * not null and not an array.
    */
-  compute(params, hash) {
+  compute(params, hash = {}) {
     assert('params should be a not null valid array', isArray(params));
 
-    // FIXME: use array destructuring when coverage tooling will support it
-    let array = params[0];
-    let value = params[1];
+    let [array, value] = params;
 
     // if array undefined or null, we test against an empty array. This is particularily usefull
     // if the test occurs before a promise is resolved, for example
@@ -68,7 +66,7 @@ export default Helper.extend({
 
     assert('First parameter should be a valid array', isArray(array));
 
-    let property = hash ? hash.property : null;
+    const property = hash.property;
     let contained = false;
     this.setupRecompute(array, property);
 
