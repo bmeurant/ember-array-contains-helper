@@ -19,6 +19,7 @@
   "author": "Baptiste Meurant <baptiste@meurant.io>",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
     "broccoli-asset-rev": "^2.4.5",
     "codeclimate-test-reporter": "^0.3.3",
     "coveralls": "^2.11.12",
