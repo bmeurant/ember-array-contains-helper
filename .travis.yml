@@ -19,14 +19,17 @@ addons:
       - google-chrome-stable
 
 env:
-  - EMBER_TRY_SCENARIO=ember-1.13
-  - EMBER_TRY_SCENARIO=ember-2.0
-  - EMBER_TRY_SCENARIO=ember-lts-2.4
-  - EMBER_TRY_SCENARIO=ember-lts-2.8
-  - EMBER_TRY_SCENARIO=ember-lts-2.12
-  - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
+  global:
+    - COVERAGE=true
+  matrix:
+    - EMBER_TRY_SCENARIO=ember-1.13
+    - EMBER_TRY_SCENARIO=ember-2.0
+    - EMBER_TRY_SCENARIO=ember-lts-2.4
+    - EMBER_TRY_SCENARIO=ember-lts-2.8
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
 
 matrix:
   fast_finish: true
@@ -45,7 +48,7 @@ script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
 
 after_script:
-  - codeclimate-test-reporter < lcov.dat
-  - cat lcov.dat | node_modules/coveralls/bin/coveralls.js
+  - codeclimate-test-reporter < coverage/lcov.info
+  - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
 
 dist: trusty
