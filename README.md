@@ -174,6 +174,7 @@ Thank you!!!
 ### Installation
 
 * `git clone https://github.com/bmeurant/ember-array-contains-helper`
+* `cd ember-array-contains-helper`
 * `npm install`
 * `bower install`
 
@@ -182,11 +183,11 @@ Thank you!!!
 * `npm install`
 * `bower install`
 * `ember server`
-* Visit your app at http://localhost:4200.
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Running Tests
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
+* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
