@@ -2,6 +2,10 @@ import Ember from 'ember';
 import { describeComponent, it } from 'ember-mocha';
 import { expect } from 'chai';
 import hbs from 'htmlbars-inline-precompile';
+import { is } from 'ember-version-is';
+
+// remove alpha, beta, canary, etc. suffixes to the current Ember version
+const BASE_VERSION =  Ember.VERSION.indexOf('-') === -1 ? Ember.VERSION : Ember.VERSION.substr(0, Ember.VERSION.indexOf('-'));
 
 describeComponent('array-contains', 'helper:array-contains', { integration: true }, function() {
 
@@ -24,6 +28,12 @@ describeComponent('array-contains', 'helper:array-contains', { integration: true
 
   it('should return true if literal contained', function () {
     this.set('array', ['c', 'string', 0, true, null]);
+
+    // before ember 2.9, null and undefined were both coerced to null
+    // (see https://github.com/emberjs/ember.js/issues/14016)
+    if (is(BASE_VERSION, "greaterThanOrEqualTo", "2.9.0")) {
+      this.get('array').push(undefined);
+    }
 
     this.render(hbs`{{array-contains array 'c'}}`);
     expect(this.$().text()).to.equal("true", "array should contain 'c'");
@@ -58,6 +68,13 @@ describeComponent('array-contains', 'helper:array-contains', { integration: true
 
     this.render(hbs`{{array-contains array false}}`);
     expect(this.$().text()).to.equal("false", "array should not contain 'false'");
+
+    // before ember 2.9, null and undefined were both coerced to null
+    // (see https://github.com/emberjs/ember.js/issues/14016)
+    if (is(BASE_VERSION, "greaterThanOrEqualTo", "2.9.0")) {
+      this.render(hbs`{{array-contains array undefined}}`);
+      expect(this.$().text()).to.equal("false", "array should not contain 'undefined'");
+    }
   });
 
   it('should return true if native object contained', function () {

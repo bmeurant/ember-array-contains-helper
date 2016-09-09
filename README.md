@@ -150,7 +150,22 @@ export default Ember.Route.extend({
 {{array-contains model 'Blacksad' property='title'}}
 ```
 
-Note that null or undefined are considered acceptable and equivalent values for 'value' parameter (resolve both to null)
+### ``null`` and ``undefined``
+
+``null`` and ``undefined`` are considered acceptable values for 'value' parameter.
+
+* **until ember 2.8**, ``null`` and ``undefined`` are both coerced to ``null`` by the templating engine. The following
+  expressions are therefore both leading to check for the presence of a ``null`` value inside the array:
+
+  ```hbs
+  {{array-contains collection null}}
+  {{array-contains collection undefined}}
+  ``` 
+
+* **ember 2.9 (glimmer)** changed this behaviour. ``undefined`` are then preserved and not coerced to ``null`` anymore.
+
+It could eventually break some apps relying on the initial behaviour but it has been considered as a fix since the first behaviour 
+was accidental. See [this issue](https://github.com/emberjs/ember.js/issues/14016) for details.
 
 ## Changelog
 
