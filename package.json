@@ -24,7 +24,7 @@
     "codeclimate-test-reporter": "^0.3.3",
     "coveralls": "^2.11.12",
     "ember-ajax": "^2.4.1",
-    "ember-cli": "2.7.0",
+    "ember-cli": "2.8.0",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-blanket": "^0.9.8",
     "ember-cli-changelog": "runspired/ember-cli-changelog#develop",
