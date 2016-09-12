@@ -1,6 +1,15 @@
 # Changelog
 
 
+## v1.3.0 (September 12th, 2016)
+
+#### Commits
+
+- [1fa7f914](https://github.com/bmeurant/ember-array-contains-helper/commit/1fa7f914eb80b0166a731e9c97504b2129fc3bad) **docs(dummy)**: fix typo *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [c2716988](https://github.com/bmeurant/ember-array-contains-helper/commit/c2716988333017bc4dea33e5234cf8b2fc029d5e) **refactor(array-contains)**: use includes polyfill for older ember versions *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [3b791647](https://github.com/bmeurant/ember-array-contains-helper/commit/3b7916472c0a301643c78eb6417fc2bdf8908cb2) **fix(array-contains)**: add missing cleanup on destroy *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [01842004](https://github.com/bmeurant/ember-array-contains-helper/commit/01842004cf4f5f5f4d9e3f3233313d6e28b00615) **refactor(array-contains)**: remove unnecessary recompute override *by [Baptiste Meurant](https://github.com/bmeurant)*
+
 ## v1.2.0 (August 3rd, 2016)
 
 ### Pull Requests
