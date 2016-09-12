@@ -5,7 +5,7 @@ import hbs from 'htmlbars-inline-precompile';
 import { is } from 'ember-version-is';
 
 // remove alpha, beta, canary, etc. suffixes to the current Ember version
-const BASE_VERSION =  Ember.VERSION.indexOf('-') === -1 ? Ember.VERSION : Ember.VERSION.substr(0, Ember.VERSION.indexOf('-'));
+const BASE_VERSION =  Ember.VERSION.replace(/-.*/, "");
 
 describeComponent('array-contains', 'helper:array-contains', { integration: true }, function() {
 
