@@ -60,7 +60,7 @@
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
-    "ember-runtime-enumerable-includes-polyfill": "^1.0.1"
+    "ember-runtime-enumerable-includes-polyfill": "^1.0.3"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
