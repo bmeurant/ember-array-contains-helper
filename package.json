@@ -22,7 +22,7 @@
     "babel-eslint": "^7.1.1",
     "broccoli-asset-rev": "^2.4.5",
     "codeclimate-test-reporter": "^0.4.0",
-    "coveralls": "^2.11.12",
+    "coveralls": "^2.11.15",
     "ember-ajax": "^2.4.1",
     "ember-cli": "^2.8.0",
     "ember-cli-app-version": "^2.0.0",
