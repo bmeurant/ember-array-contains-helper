@@ -31,7 +31,7 @@ describeComponent('array-contains', 'helper:array-contains', { integration: true
 
     // before ember 2.9, null and undefined were both coerced to null
     // (see https://github.com/emberjs/ember.js/issues/14016)
-    if (is(BASE_VERSION, "greaterThanOrEqualTo", "2.9.0")) {
+    if (is(BASE_VERSION, "greaterThanOrEqualTo", "2.10.0")) {
       this.get('array').push(undefined);
     }
 
@@ -69,9 +69,9 @@ describeComponent('array-contains', 'helper:array-contains', { integration: true
     this.render(hbs`{{array-contains array false}}`);
     expect(this.$().text()).to.equal("false", "array should not contain 'false'");
 
-    // before ember 2.9, null and undefined were both coerced to null
+    // before ember 2.10, null and undefined were both coerced to null
     // (see https://github.com/emberjs/ember.js/issues/14016)
-    if (is(BASE_VERSION, "greaterThanOrEqualTo", "2.9.0")) {
+    if (is(BASE_VERSION, "greaterThanOrEqualTo", "2.10.0")) {
       this.render(hbs`{{array-contains array undefined}}`);
       expect(this.$().text()).to.equal("false", "array should not contain 'undefined'");
     }
