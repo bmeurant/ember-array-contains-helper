@@ -12,7 +12,7 @@
 /.sass-cache
 /connect.lock
 /libpeerconnection.log
-npm-debug.log
+npm-debug.log*
 testem.log
 
 # coverage
