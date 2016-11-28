@@ -35,7 +35,7 @@ module.exports = {
           'ember': 'components/ember#lts-2-4'
         },
         resolutions: {
-          'ember': 'lts-2.4'
+          'ember': 'lts-2-4'
         }
       }
     },
@@ -46,7 +46,7 @@ module.exports = {
           'ember': 'components/ember#lts-2-8'
         },
         resolutions: {
-          'ember': 'lts-2.8'
+          'ember': 'lts-2-8'
         }
       }
     },
