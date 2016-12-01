@@ -46,7 +46,7 @@
             
             
             <div class="version-info">
-              Version: 1.2.0.73bc6605
+              Version: v1.3.1
             </div>
             
         </div>
@@ -178,7 +178,22 @@ export default Ember.Route.extend({
    
 {{array-contains model 'Blacksad' property='title'}}
 </code></pre>
-<p>Note that null or undefined are considered acceptable and equivalent values for 'value' parameter (resolve both to null)</p>
+<h3><code>null</code> and <code>undefined</code></h3>
+<p><code>null</code> and <code>undefined</code> are considered acceptable values for 'value' parameter.</p>
+<ul>
+<li>
+<p><strong>until ember 2.9</strong>, <code>null</code> and <code>undefined</code> are both coerced to <code>null</code> by the templating engine. The following
+expressions are therefore both leading to check for the presence of a <code>null</code> value inside the array:</p>
+<pre><code class="language-hbs">{{array-contains collection null}}
+{{array-contains collection undefined}}
+</code></pre>
+</li>
+<li>
+<p><strong>ember 2.10 (glimmer)</strong> changed this behaviour. <code>undefined</code> are then preserved and not coerced to <code>null</code> anymore.</p>
+</li>
+</ul>
+<p>It could eventually break some apps relying on the initial behaviour but it has been considered as a fix since the first behaviour
+was accidental. See <a href="https://github.com/emberjs/ember.js/issues/14016">this issue</a> for details.</p>
 <h2>Changelog</h2>
 <p>Changelog can be found <a href="https://github.com/bmeurant/ember-array-contains-helper/blob/master/CHANGELOG.md">here</a></p>
 <h2>Contributing</h2>
@@ -197,6 +212,7 @@ export default Ember.Route.extend({
 <h3>Installation</h3>
 <ul>
 <li><code>git clone https://github.com/bmeurant/ember-array-contains-helper</code></li>
+<li><code>cd ember-array-contains-helper</code></li>
 <li><code>npm install</code></li>
 <li><code>bower install</code></li>
 </ul>
@@ -205,11 +221,11 @@ export default Ember.Route.extend({
 <li><code>npm install</code></li>
 <li><code>bower install</code></li>
 <li><code>ember server</code></li>
-<li>Visit your app at http://localhost:4200.</li>
+<li>Visit your app at <a href="http://localhost:4200">http://localhost:4200</a>.</li>
 </ul>
 <h3>Running Tests</h3>
 <ul>
-<li><code>npm test</code> (Runs <code>ember try:testall</code> to test your addon against multiple Ember versions)</li>
+<li><code>npm test</code> (Runs <code>ember try:each</code> to test your addon against multiple Ember versions)</li>
 <li><code>ember test</code></li>
 <li><code>ember test --server</code></li>
 </ul>
@@ -221,7 +237,7 @@ export default Ember.Route.extend({
 <p>This addon uses <a href="http://yui.github.io/yuidoc/">YUIDoc</a> via <a href="https://github.com/cibernox/ember-cli-yuidoc">ember-cli-yuidoc</a>. <a href="https://github.com/Turbo87/yuidoc-ember-cli-theme">yuidoc-ember-cli-theme</a> makes it pretty.
 Docs generation is enabled in development mode via <code>ember build</code> or <code>ember serve</code> with or without --docs auto refresh option. It can also be explicitely generated with <code>ember ember-cli-yuidoc</code>
 command.</p>
-<p>For more information on using ember-cli, visit <a href="http://www.ember-cli.com/">http://www.ember-cli.com/</a>.</p>
+<p>For more information on using ember-cli, visit <a href="https://www.ember-cli.com/">https://www.ember-cli.com/</a>.</p>
 
 </div>
         </div>
