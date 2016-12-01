@@ -1,6 +1,12 @@
 # Changelog
 
 
+## v1.3.1 (December 1st, 2016)
+
+#### Commits
+
+- [8f7da7fc](https://github.com/bmeurant/ember-array-contains-helper/commit/8f7da7fcfb957f34ad7ca808fbd02e0a621d1077) **fix(includes)**: backward compatibility for Array#includes *by [Baptiste Meurant](https://github.com/bmeurant)*
+
 ## v1.3.0 (September 12th, 2016)
 
 #### Commits
