@@ -216,4 +216,4 @@ This addon uses [YUIDoc](http://yui.github.io/yuidoc/) via [ember-cli-yuidoc](ht
 Docs generation is enabled in development mode via `ember build` or `ember serve` with or without --docs auto refresh option. It can also be explicitely generated with `ember ember-cli-yuidoc`
 command.
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+For more information on using ember-cli, visit [https://www.ember-cli.com/](https://www.ember-cli.com/).

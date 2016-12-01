@@ -7,7 +7,8 @@ sudo: required
 
 cache:
   directories:
-    - node_modules
+    - $HOME/.npm
+    - $HOME/.cache # includes bowers cache
 
 addons:
   code_climate:
