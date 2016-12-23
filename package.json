@@ -43,7 +43,7 @@
     "ember-cli-mocha": "^0.13.0",
     "ember-cli-mocha-reporter": "git+https://github.com/lolmaus/ember-cli-mocha-reporter.git#b98c2694724a6b80b9fb2244a05a46ff8ffd71bd",
     "ember-cli-release": "1.0.0-beta.2",
-    "ember-cli-sass": "^5.5.1",
+    "ember-cli-sass": "^6.0.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
