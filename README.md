@@ -1,5 +1,6 @@
 # ember-array-contains-helper 
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bmeurant/ember-array-contains-helper.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/bmeurant/ember-array-contains-helper.svg?branch=master)](https://travis-ci.org/bmeurant/ember-array-contains-helper)
 [![npm version](https://img.shields.io/npm/v/ember-array-contains-helper.svg)](https://www.npmjs.com/package/ember-array-contains-helper)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
