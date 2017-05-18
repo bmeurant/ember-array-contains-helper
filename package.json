@@ -54,7 +54,7 @@
     "ember-load-initializers": "^1.0.0",
     "ember-paper": "1.0.0-alpha.19",
     "ember-resolver": "^4.1.0",
-    "ember-source": "~2.13.0",
+    "ember-source": "~2.13.2",
     "ember-version-is": "0.0.3",
     "loader.js": "^4.2.3",
     "urljs": "2.3.1",
