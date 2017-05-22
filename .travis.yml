@@ -8,7 +8,6 @@ sudo: required
 cache:
   directories:
     - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
 
 addons:
   code_climate:
@@ -24,6 +23,7 @@ env:
   - EMBER_TRY_SCENARIO=ember-2.0
   - EMBER_TRY_SCENARIO=ember-lts-2.4
   - EMBER_TRY_SCENARIO=ember-lts-2.8
+  - EMBER_TRY_SCENARIO=ember-lts-2.12
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
@@ -31,19 +31,15 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-    - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
   - 'export DISPLAY=:99.0'
   - sh -e /etc/init.d/xvfb start
   - npm config set spin false
-  - npm install -g bower
-  - bower --version
 
 install:
   - npm install
-  - bower install
 
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
