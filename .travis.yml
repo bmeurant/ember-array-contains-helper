@@ -5,6 +5,12 @@ node_js:
 
 sudo: required
 
+branches:
+  only:
+  - master
+  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+  - /^greenkeeper.*$/
+
 cache:
   directories:
     - $HOME/.npm
