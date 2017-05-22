@@ -1,5 +1,6 @@
 import Ember from 'ember';
-import { describeComponent, it } from 'ember-mocha';
+import { describe, it } from 'mocha';
+import { setupComponentTest } from 'ember-mocha';
 import { expect } from 'chai';
 import hbs from 'htmlbars-inline-precompile';
 import { is } from 'ember-version-is';
@@ -7,7 +8,8 @@ import { is } from 'ember-version-is';
 // remove alpha, beta, canary, etc. suffixes to the current Ember version
 const BASE_VERSION =  Ember.VERSION.replace(/-.*/, "");
 
-describeComponent('array-contains', 'helper:array-contains', { integration: true }, function() {
+describe('helper:array-contains', function() {
+  setupComponentTest('array-contains', { integration: true });
 
   it('should not throw error if array undefined or null', function () {
     this.set('array', undefined);
