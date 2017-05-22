@@ -192,12 +192,10 @@ Thank you!!!
 * `git clone https://github.com/bmeurant/ember-array-contains-helper`
 * `cd ember-array-contains-helper`
 * `npm install`
-* `bower install`
 
 ### Running dummy demo app
 
 * `npm install`
-* `bower install`
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
