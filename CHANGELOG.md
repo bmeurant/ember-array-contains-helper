@@ -1,6 +1,13 @@
 # Changelog
 
 
+## v1.3.2 (May 24th, 2017)
+
+#### Commits
+
+- [66cf3ad5](https://github.com/bmeurant/ember-array-contains-helper/commit/66cf3ad51faefdf09f9450a700c9e6b984204930) **refactor(array-contains)**: use ES6 destructuring and default value *by [Baptiste Meurant](https://github.com/bmeurant)*
+- [6a6fa30](https://github.com/bmeurant/ember-array-contains-helper/commit/6a6fa3003fa22d3fe001a53b11d541ef6a76613d) **chore(package)**: chore(package): update version for ember-cli-babel *by [Baptiste Meurant](https://github.com/bmeurant)*
+
 ## v1.3.1 (December 1st, 2016)
 
 #### Commits
