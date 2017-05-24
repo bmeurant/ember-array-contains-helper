@@ -2363,6 +2363,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("dummy/app")["default"].create({"name":"ember-array-contains-helper","version":"1.3.1+faff593e"});
+  require("dummy/app")["default"].create({"name":"ember-array-contains-helper","version":"1.3.1+c380bd0d"});
 }
 //# sourceMappingURL=dummy.map
