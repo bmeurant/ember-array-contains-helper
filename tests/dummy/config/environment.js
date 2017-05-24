@@ -38,6 +38,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.rootURL = 'http://baptiste.meurant.io/ember-array-contains-helper/',
+    ENV.locationType = 'hash',
+    ENV.host = 'http://baptiste.meurant.io/ember-array-contains-helper'
   }
 
   if (environment === 'test') {
