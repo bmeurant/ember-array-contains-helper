@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Array contains Tests</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+<meta name="dummy/config/environment" content="%7B%22modulePrefix%22%3A%22dummy%22%2C%22environment%22%3A%22test%22%2C%22rootURL%22%3A%22/%22%2C%22locationType%22%3A%22none%22%2C%22host%22%3A%22/%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%7D%2C%22APP%22%3A%7B%22LOG_ACTIVE_GENERATION%22%3Afalse%2C%22LOG_VIEW_LOOKUPS%22%3Afalse%2C%22rootElement%22%3A%22%23ember-testing%22%2C%22name%22%3A%22ember-array-contains-helper%22%2C%22version%22%3A%221.3.1+faff593e%22%7D%2C%22contentSecurityPolicy%22%3A%7B%22script-src%22%3A%22%27self%27%20%27unsafe-eval%27%20*.google.com%20*.gstatic.com%22%2C%22style-src%22%3A%22%27self%27%20%27unsafe-inline%27%20*.google.com%20*.googleapis.com%22%2C%22font-src%22%3A%22%27self%27%20*.gstatic.com%20*.googleapis.com%22%2C%22img-src%22%3A%22%27self%27%20*.amazonaws.com%22%7D%2C%22ember-cli-mirage%22%3A%7B%22enabled%22%3Afalse%2C%22usingProxy%22%3Afalse%2C%22useDefaultPassthroughs%22%3Atrue%7D%2C%22ember-paper%22%3A%7B%22insertFontLinks%22%3Atrue%7D%2C%22exportApplicationGlobal%22%3Atrue%7D" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+
+    <link rel="stylesheet" href="/assets/vendor.css">
+    <link rel="stylesheet" href="/assets/test-support.css">
+
+    
+    
+  </head>
+  <body>
+    
+    <div id="mocha"></div>
+<div id="mocha-fixture"></div>
+
+<div id="ember-testing-container">
+  <div id="ember-testing"></div>
+</div>
+
+
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/test-support.js"></script>
+    <script src="/assets/dummy.js"></script>
+    <script src="/testem.js" integrity=""></script>
+    <script src="/assets/tests.js"></script>
+
+    
+    <script>Ember.assert('The tests file was not loaded. Make sure your tests index.html includes "assets/tests.js".', EmberENV.TESTS_FILE_LOADED);</script>
+<script>
+  // Make synchronous requests in phantom to avoid killing the runner before the coverage completes.
+  var REQUEST_ASYNC = !/PhantomJS/.test(window.navigator.userAgent);
+
+  function sendCoverage(callback) {
+   Object.keys(require.entries).forEach(function(file) {
+      // Only load non-test files from the project
+      var parts = file.split('/');
+      if (parts[0] === 'ember-array-contains-helper' && parts[1] !== 'tests') {
+        try {
+          require(file);
+        } catch(error) {
+          console.warn('Error occurred while evaluating `' + file + '`: ' + error.message + '\n' + error.stack);
+        }
+      }
+    });
+
+    var coverageData = window.__coverage__;
+    var data = JSON.stringify(coverageData || {});
+
+    var request = new XMLHttpRequest();
+    request.open('POST', '/write-coverage', REQUEST_ASYNC);
+    request.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+    request.send(data);
+
+    if (REQUEST_ASYNC) {
+      request.responseType = 'json';
+      request.onload = function() {
+        handleCoverageResponse(this, callback);
+      }
+    } else {
+      // The request is already done at this point, since it is synchronous
+      if (request.status === 200) {
+        handleCoverageResponse(request, callback);
+      }
+    }
+  }
+
+  if (typeof Testem !== "undefined" && Testem.afterTests) {
+    Testem.afterTests(function(config, data, callback) {
+      sendCoverage(callback);
+    });
+  } else if (typeof QUnit !== "undefined") {
+    QUnit.done(function() {
+      sendCoverage();
+    });
+  }
+
+  function handleCoverageResponse(xhr, callback) {
+    var data = xhr.response;
+
+    // PhantomJS doesn't honor `responseType = 'json'`
+    if (typeof data === 'string') {
+      data = JSON.parse(data);
+    }
+
+    if (!data || !data.total) {
+      return;
+    }
+
+    var results = ['Lines', 'Branches', 'Functions', 'Statements']
+      .filter(function (name) {
+        return data.total[name.toLowerCase()]
+      })
+      .map(function (name) {
+        return name + ' ' + data.total[name.toLowerCase()].pct + '%'
+      });
+
+    var resultsText = document.createTextNode(results.join(' | '));
+    var element = document.createElement('div');
+    element.style = 'background-color: white; color: black; border: 2px solid black; padding: 1em;position: fixed; left: 15px; bottom: 15px';
+    element.appendChild(resultsText);
+    document.body.appendChild(element);
+
+    if (callback) {
+      callback();
+    }
+  }
+</script>
+
+  </body>
+</html>
