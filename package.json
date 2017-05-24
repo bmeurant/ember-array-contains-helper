@@ -17,7 +17,7 @@
     "start": "ember server",
     "test": "ember try:each",
     "posttest": "sed -e s/ember-array-contains-helper/addon/g ./coverage/lcov.info",
-    "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout -"
+    "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\" --environment production; git push; git checkout -"
   },
   "dependencies": {
     "ember-cli-babel": "^6.1.0",
