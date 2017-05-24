@@ -1725,7 +1725,8 @@ define('dummy/mirage/config', ['exports', 'dummy/config/environment'], function 
 
   exports.default = function () {
 
-    this.passthrough('/write-coverage');
+    //this.passthrough('/write-coverage');
+    this.namespace = 'ember-array-contains-helper';
 
     if (_environment.default.environment === 'production') {
       this.namespace = 'http://baptiste.meurant.io/ember-array-contains-helper';
@@ -2363,6 +2364,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("dummy/app")["default"].create({"name":"ember-array-contains-helper","version":"1.3.1+c380bd0d"});
+  require("dummy/app")["default"].create({"name":"ember-array-contains-helper","version":"1.3.1+cac988c7"});
 }
 //# sourceMappingURL=dummy.map
