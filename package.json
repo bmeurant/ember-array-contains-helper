@@ -53,7 +53,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-inflector": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
-    "ember-paper": "1.0.0-alpha.19",
+    "ember-paper": "1.0.0-alpha.20",
     "ember-resolver": "^4.1.0",
     "ember-source": "~2.13.2",
     "ember-version-is": "0.0.3",
