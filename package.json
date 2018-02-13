@@ -31,7 +31,7 @@
     "ember-cli": "^2.13.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-chai": "^0.4.1",
-    "ember-cli-changelog": "runspired/ember-cli-changelog#develop",
+    "ember-cli-changelog": "html-next/ember-cli-changelog",
     "ember-cli-code-coverage": "bmeurant/ember-cli-code-coverage#exclude-dummy",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.0.0",
