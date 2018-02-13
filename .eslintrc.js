@@ -1,6 +1,3 @@
-/* eslint-env node */
-'use strict';
-
 module.exports = {
   root: true,
 
@@ -9,49 +6,60 @@ module.exports = {
     sourceType: 'module'
   },
 
-  extends: 'eslint:recommended',
+  plugins: [
+    'ember'
+  ],
+  extends: [
+    'eslint:recommended',
+    'plugin:ember/recommended'
+  ],
 
   env: {
     'browser': true
   },
 
   rules: {
-    'no-unused-expressions': [2, {
-      allowShortCircuit: true,
-      allowTernary: true
-    }],
+    'ember/use-ember-get-and-set': [2, {
+      ignoreThisExpressions: false,
+    }]
+  },
 
-    'no-proto': 0,
+  overrides: [
+    // node files
+    {
+      files: [
+        'index.js',
+        'testem.js',
+        'ember-cli-build.js',
+        'config/**/*.js',
+        'tests/dummy/config/**/*.js'
+      ],
+      excludedFiles: [
+        'app/**',
+        'addon/**',
+        'tests/dummy/app/**'
+      ],
+      parserOptions: {
+        sourceType: 'script',
+        ecmaVersion: 2015
+      },
+      env: {
+        browser: false,
+        node: true
+      },
+      plugins: ['node'],
+      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
+        // add your custom rules and overrides for node files here
+      })
+    },
 
-    'indent': [2, 2, {
-      'SwitchCase': 1,
-      'VariableDeclarator': { 'var': 2, 'let': 2, 'const': 3 }
-    }],
-
-    'camelcase': 2,
-
-    'curly': 2,
-
-    'no-use-before-define': [2, 'nofunc'],
-
-    'eqeqeq': 2,
-
-    'no-eval': 2,
-
-    'linebreak-style': [2, 'unix'],
-
-    'new-cap': [2, {
-      properties: false
-    }],
-
-    'no-caller': 2,
-
-    'quotes': [0, 'single'],
-
-    'no-trailing-spaces': 2,
-
-    'no-eq-null': 2,
-
-    'comma-dangle': 2
-  }
+    // test files
+    {
+      files: ['tests/**/*.js'],
+      excludedFiles: ['tests/dummy/**/*.js'],
+      env: {
+        embertest: true
+      }
+    }
+  ]
 };

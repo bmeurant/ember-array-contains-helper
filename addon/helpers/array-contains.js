@@ -2,13 +2,12 @@
  * @module ember-array-contains-helper
  */
 
-// Note: exported modules are defined in ember-cli/ember-cli-shims/blob/master/app-shims.js
-import { isNone } from 'ember-utils';
-import { A as emberArray, isEmberArray as isArray } from 'ember-array/utils';
-import { assert } from 'ember-metal/utils';
-import Helper from 'ember-helper';
-import set from 'ember-metal/set';
-import { addObserver, removeObserver } from 'ember-metal/observer';
+import { isNone } from "@ember/utils";
+import { A as emberArray, isArray } from "@ember/array";
+import EmberError from "@ember/error";
+import Helper from "@ember/component/helper";
+import { set } from "@ember/object";
+import { addObserver, removeObserver } from "@ember/object/observers";
 
 /**
  * Helper providing a way to test the presence of an item in an array.
@@ -52,19 +51,18 @@ export default Helper.extend({
    *   - the array in ``params[0]`` contains an object holding a property named ``hash.property`` with value equals to ``params[1]``
    * - false otherwise and if the array in ``params[0]`` is null or undefined
    *
-   * @throws {Ember.Error} if params is null or not an array or if the given array (from ``params[0]``) is
-   * not null and not an array.
+   * @throws {Ember.Error} if the given array (from ``params[0]``) is not null and not an array.
    */
   compute(params, hash = {}) {
-    assert('params should be a not null valid array', isArray(params));
-
     let [array, value] = params;
 
     // if array undefined or null, we test against an empty array. This is particularily usefull
     // if the test occurs before a promise is resolved, for example
     if (isNone(array)) { array = emberArray([]); }
 
-    assert('First parameter should be a valid array', isArray(array));
+    if (!isArray(array)) {
+      throw new EmberError('First parameter should be a valid array');
+    }
 
     const property = hash.property;
     let contained = false;

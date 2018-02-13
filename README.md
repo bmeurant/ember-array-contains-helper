@@ -4,7 +4,6 @@
 [![Build Status](https://travis-ci.org/bmeurant/ember-array-contains-helper.svg?branch=master)](https://travis-ci.org/bmeurant/ember-array-contains-helper)
 [![npm version](https://img.shields.io/npm/v/ember-array-contains-helper.svg)](https://www.npmjs.com/package/ember-array-contains-helper)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
-[![Ember badge](https://embadge.io/v1/badge.svg?start=1.13.1&label=ember)](http://embadge.io/)
 
 [![Ember Observer Score](http://emberobserver.com/badges/ember-array-contains-helper.svg)](http://emberobserver.com/addons/ember-array-contains-helper)
 [![Code Climate](https://codeclimate.com/github/bmeurant/ember-array-contains-helper/badges/gpa.svg)](https://codeclimate.com/github/bmeurant/ember-array-contains-helper)
@@ -37,10 +36,12 @@ The documentation is available [here](http://baptiste.meurant.io/ember-array-con
 
 ## Compatibility
 
-This helper is tested and compatible with **1.13.1+ ember versions**. See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper)
-
-Note that the helper basically works in **1.13.0 ember version** but the changes on the array (add/remove/change property) will
+- This helper basically works in **1.13.0 ember version** but the changes on the array (add/remove/change property) will
 not rerun the helper. This is probably due to [this bug](https://github.com/emberjs/ember.js/pull/11445).
+- Versions before 2.x are tested and compatible with ember versions from **1.13.1** to **2.12**.
+- After 2.x, tests are only run against **the two last LTS ember versions, release, beta and canary**. See [ember-try config for details](./config/ember-try.js)
+
+See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper) for current tests and compatibility details.
 
 ## Installation
 

@@ -1,13 +1,27 @@
-engines:
+plugins:
   eslint:
     enabled: true
+    exclude_paths:
+    - index.js
+    - testem.js
+    - ember-cli-build.js
+    - config/**/*.js
+    - tests/dummy/config/**/*.js
+    - tests/helpers/*.js
+    - tests/dummy/app/**
+    checks:
+      ember/alias-model-in-controller:
+        enabled: false
   fixme:
     enabled: true
-duplication:
-  enabled: true
-  config:
-    languages:
-    - javascript
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+    exclude_paths:
+    - tests/
+
 ratings:
   paths:
   - "**.js"

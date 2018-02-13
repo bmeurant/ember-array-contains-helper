@@ -1,10 +1,9 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'dummy',
-    environment: environment,
+    environment,
     rootURL: '/',
     locationType: 'auto',
     host: '/',
@@ -54,6 +53,8 @@ module.exports = function(environment) {
     ENV['ember-cli-mirage'] = {
       enabled: false
     }
+
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {

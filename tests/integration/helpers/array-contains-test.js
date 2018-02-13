@@ -1,12 +1,9 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import EmberObject, { set } from '@ember/object';
 import { describe, it } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
 import { expect } from 'chai';
 import hbs from 'htmlbars-inline-precompile';
-import { is } from 'ember-version-is';
-
-// remove alpha, beta, canary, etc. suffixes to the current Ember version
-const BASE_VERSION =  Ember.VERSION.replace(/-.*/, "");
 
 describe('helper:array-contains', function() {
   setupComponentTest('array-contains', { integration: true });
@@ -22,22 +19,18 @@ describe('helper:array-contains', function() {
   });
 
   // Asserting error thrown no longer works as of ember 2.11
-  // TODO: unkip once https://github.com/emberjs/ember.js/issues/15013 is resolved.
+  // TODO: unskip once https://github.com/emberjs/ember.js/issues/15013 is resolved (2.17).
   it.skip('should throw error if array is invalid', function () {
     this.set('array', 'any');
 
     expect(this.render.bind(this,hbs`{{array-contains array 'any'}}`))
-      .to.throw("Assertion Failed: First parameter should be a valid array");
+      .to.throw("Error: First parameter should be a valid array");
   });
 
   it('should return true if literal contained', function () {
     this.set('array', ['c', 'string', 0, true, null]);
 
-    // before ember 2.9, null and undefined were both coerced to null
-    // (see https://github.com/emberjs/ember.js/issues/14016)
-    if (is(BASE_VERSION, "greaterThanOrEqualTo", "2.10.0")) {
-      this.get('array').push(undefined);
-    }
+    this.get('array').push(undefined);
 
     this.render(hbs`{{array-contains array 'c'}}`);
     expect(this.$().text()).to.equal("true", "array should contain 'c'");
@@ -73,12 +66,8 @@ describe('helper:array-contains', function() {
     this.render(hbs`{{array-contains array false}}`);
     expect(this.$().text()).to.equal("false", "array should not contain 'false'");
 
-    // before ember 2.10, null and undefined were both coerced to null
-    // (see https://github.com/emberjs/ember.js/issues/14016)
-    if (is(BASE_VERSION, "greaterThanOrEqualTo", "2.10.0")) {
-      this.render(hbs`{{array-contains array undefined}}`);
-      expect(this.$().text()).to.equal("false", "array should not contain 'undefined'");
-    }
+    this.render(hbs`{{array-contains array undefined}}`);
+    expect(this.$().text()).to.equal("false", "array should not contain 'undefined'");
   });
 
   it('should return true if native object contained', function () {
@@ -120,7 +109,7 @@ describe('helper:array-contains', function() {
   });
 
   it('should return true if Ember object contained', function () {
-    let elem = Ember.Object.create({id: 1, title: 'any'});
+    let elem = EmberObject.create({id: 1, title: 'any'});
     this.set('array', [elem]);
     this.set('elem', elem);
 
@@ -129,15 +118,15 @@ describe('helper:array-contains', function() {
   });
 
   it('should return false if Ember object not contained', function () {
-    this.set('array', [Ember.Object.create({id: 2, title: 'other'})]);
-    this.set('elem', Ember.Object.create({id: 1, title: 'any'}));
+    this.set('array', [EmberObject.create({id: 2, title: 'other'})]);
+    this.set('elem', EmberObject.create({id: 1, title: 'any'}));
 
     this.render(hbs`{{array-contains array elem}}`);
     expect(this.$().text()).to.equal("false", "array should not contain elem");
   });
 
   it('should recompute when Ember object change', function () {
-    let elem = Ember.Object.create({id: 1, title: 'any'});
+    let elem = EmberObject.create({id: 1, title: 'any'});
     this.set('array', [elem]);
     this.set('elem', elem);
 
@@ -152,7 +141,7 @@ describe('helper:array-contains', function() {
 
     expect(this.$().text()).to.equal("true", "array should contain elem");
 
-    this.set('elem', Ember.Object.create({id: 1, title: 'any'}));
+    this.set('elem', EmberObject.create({id: 1, title: 'any'}));
 
     expect(this.$().text()).to.equal("false", "array should not contain elem");
   });
@@ -172,7 +161,7 @@ describe('helper:array-contains', function() {
   });
 
   it('should return true if Ember object contained', function () {
-    let elem = Ember.Object.create({id: 1, title: 'any'});
+    let elem = EmberObject.create({id: 1, title: 'any'});
     this.set('array', [elem]);
     this.set('elem', elem);
 
@@ -181,8 +170,8 @@ describe('helper:array-contains', function() {
   });
 
   it('should return false if Ember object not contained', function () {
-    let elem = Ember.Object.create({id: 1, title: 'any'});
-    this.set('array', [Ember.Object.create({id: 2, title: 'other'})]);
+    let elem = EmberObject.create({id: 1, title: 'any'});
+    this.set('array', [EmberObject.create({id: 2, title: 'other'})]);
     this.set('elem', elem);
 
     this.render(hbs`{{array-contains array elem}}`);
@@ -190,7 +179,7 @@ describe('helper:array-contains', function() {
   });
 
   it('should recompute when Ember object change', function () {
-    let elem = Ember.Object.create({id: 1, title: 'any'});
+    let elem = EmberObject.create({id: 1, title: 'any'});
     this.set('array', [elem]);
     this.set('elem', elem);
 
@@ -205,20 +194,20 @@ describe('helper:array-contains', function() {
 
     expect(this.$().text()).to.equal("true", "array should contain elem");
 
-    this.set('elem', Ember.Object.create({id: 1, title: 'any'}));
+    this.set('elem', EmberObject.create({id: 1, title: 'any'}));
 
     expect(this.$().text()).to.equal("false", "array should not contain elem");
   });
 
   it('should return true if Ember object property contained', function () {
-    this.set('array', [Ember.Object.create({id: 1, title: 'any'})]);
+    this.set('array', [EmberObject.create({id: 1, title: 'any'})]);
 
     this.render(hbs`{{array-contains array 'any' property='title'}}`);
     expect(this.$().text()).to.equal("true", "array should contain 'any' title");
   });
 
   it('should return false if Ember object property not contained', function () {
-    this.set('array', [Ember.Object.create({id: 2, title: 'other'})]);
+    this.set('array', [EmberObject.create({id: 2, title: 'other'})]);
 
     this.render(hbs`{{array-contains array 'any' property='title'}}`);
     expect(this.$().text()).to.equal("false", "array should not contain 'any' title");
@@ -242,13 +231,13 @@ describe('helper:array-contains', function() {
     this.render(hbs`{{array-contains array 'any'}}`);
     expect(this.$().text()).to.equal("true", "array should contain 'any'");
 
-    Ember.run(() => {
+    run(() => {
       array.popObject();
     });
 
     expect(this.$().text()).to.equal("false", "array should not contain 'any'");
 
-    Ember.run(() => {
+    run(() => {
       array.pushObject('any');
     });
 
@@ -263,28 +252,28 @@ describe('helper:array-contains', function() {
     this.render(hbs`{{array-contains array 'any' property='title'}}`);
     expect(this.$().text()).to.equal("true", "array should contain object with prop 'any'");
 
-    Ember.run(() => {
-      Ember.set(object, 'title', 'not');
+    run(() => {
+      set(object, 'title', 'not');
     });
 
     expect(this.$().text()).to.equal("false", "array should not contain object with prop 'any'");
 
-    Ember.run(() => {
-      Ember.set(object, 'title', 'any');
+    run(() => {
+      set(object, 'title', 'any');
     });
 
     expect(this.$().text()).to.equal("true", "array should contain object with prop 'any'");
   });
 
   it('should return true in nested if if Ember object property contained', function () {
-    this.set('array', [Ember.Object.create({id: 1, title: 'any'})]);
+    this.set('array', [EmberObject.create({id: 1, title: 'any'})]);
 
     this.render(hbs`{{if (array-contains array 'any' property='title') 'ifTrue' 'ifFalse'}}`);
     expect(this.$().text()).to.equal("ifTrue", "array should contain 'any' title");
   });
 
   it('should return false in nested if if Ember object property not contained', function () {
-    this.set('array', [Ember.Object.create({id: 2, title: 'other'})]);
+    this.set('array', [EmberObject.create({id: 2, title: 'other'})]);
 
     this.render(hbs`{{if (array-contains array 'any' property='title') 'ifTrue' 'ifFalse'}}`);
     expect(this.$().text()).to.equal("ifFalse", "array should not contain 'any' title");

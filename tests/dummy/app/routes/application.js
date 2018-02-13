@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import { hash } from 'rsvp';
+import Route from '@ember/routing/route';
+import EmberObject, { get, set, setProperties } from '@ember/object';
 
 const akiraLit = 'Akira';
 const blacksadLit = 'Blacksad';
@@ -10,36 +12,39 @@ const blacksad = {title: 'Blacksad'};
 const calvinAndHobbes = {title: 'Calvin and Hobbes'};
 const blueberry = {title: 'Blueberry'};
 
-const ComicNoData = Ember.Object.extend({ title: '' });
+const ComicNoData = EmberObject.extend({ title: '' });
 const blackSadND = ComicNoData.create({ title: 'Blacksad' });
 const calvinAndHobbesND = ComicNoData.create({ title: 'Calvin and Hobbes' });
 const akiraND = ComicNoData.create({ title: 'Akira' });
 const blueberryND = ComicNoData.create({ title: 'Blueberry' });
 
-export default Ember.Route.extend({
-  comicsLiterals: [akiraLit, blacksadLit, calvinHandHobbesLit],
-  comicsNative:   [akira, blacksad, calvinAndHobbes],
-  comicsNoData:   [akiraND, blackSadND, calvinAndHobbesND],
-
+export default Route.extend({
   akira:     true,
   blacksad:  true,
   blueberry: false,
 
+  init () {
+    this._super(...arguments);
+    set(this, 'comicsLiterals', [akiraLit, blacksadLit, calvinHandHobbesLit]);
+    set(this, 'comicsNative', [akira, blacksad, calvinAndHobbes]);
+    set(this, 'comicsNoData', [akiraND, blackSadND, calvinAndHobbesND]);
+  },
+
   model () {
-    return Ember.RSVP.hash({
-      comicsLiterals: this.get('comicsLiterals'),
-      comicsNative: this.get('comicsNative'),
-      comicsNoData: this.get('comicsNoData'),
-      comics: this.store.findAll('comic')
+    return hash({
+      comicsLiterals: get(this, 'comicsLiterals'),
+      comicsNative: get(this, 'comicsNative'),
+      comicsNoData: get(this, 'comicsNoData'),
+      comics: get(this, 'store').findAll('comic')
     });
   },
 
   setupController (controller, model) {
-    controller.setProperties({
+    setProperties(controller, {
       'calvinAndHobbesLiteral': calvinHandHobbesLit,
       'calvinAndHobbesNative':  calvinAndHobbes,
       'calvinAndHobbesNoData':  calvinAndHobbesND,
-      'calvinAndHobbes':        this.set('calvinAndHobbes', this.store.find('comic', 3))
+      'calvinAndHobbes':        set(this, 'calvinAndHobbes', get(this, 'store').find('comic', 3))
     });
 
     this._super(controller, model);
@@ -47,53 +52,52 @@ export default Ember.Route.extend({
 
   actions: {
     toggleBlueberry () {
-      if (this.get('blueberry')) {
-        this.get('comicsLiterals').removeObject(blueberryLit);
-        this.get('comicsNative').removeObject(blueberry);
-        this.get('comicsNoData').removeObject(blueberryND);
+      if (get(this, 'blueberry')) {
+        get(this, 'comicsLiterals').removeObject(blueberryLit);
+        get(this, 'comicsNative').removeObject(blueberry);
+        get(this, 'comicsNoData').removeObject(blueberryND);
 
-        this.store.unloadRecord(this.store.peekRecord('comic', 4));
+        get(this, 'store').unloadRecord(get(this, 'store').peekRecord('comic', 4));
       } else {
-        this.get('comicsLiterals').pushObject(blueberryLit);
-        this.get('comicsNative').pushObject(blueberry);
-        this.get('comicsNoData').pushObject(blueberryND);
+        get(this, 'comicsLiterals').pushObject(blueberryLit);
+        get(this, 'comicsNative').pushObject(blueberry);
+        get(this, 'comicsNoData').pushObject(blueberryND);
 
-        this.store.createRecord('comic', {id: 4, title: 'Blueberry'});
+        get(this, 'store').createRecord('comic', {id: 4, title: 'Blueberry'});
       }
 
       this.toggleProperty('blueberry');
     },
 
     toggleAkira () {
-      if (this.get('akira')) {
-        this.get('comicsLiterals').removeObject(akiraLit);
-        this.get('comicsNative').removeObject(akira);
-        this.get('comicsNoData').removeObject(akiraND);
+      if (get(this, 'akira')) {
+        get(this, 'comicsLiterals').removeObject(akiraLit);
+        get(this, 'comicsNative').removeObject(akira);
+        get(this, 'comicsNoData').removeObject(akiraND);
 
-        this.store.unloadRecord(this.store.peekRecord('comic', 1));
+        get(this, 'store').unloadRecord(get(this, 'store').peekRecord('comic', 1));
       } else {
-        this.get('comicsLiterals').pushObject(akiraLit);
-        this.get('comicsNative').pushObject(akira);
-        this.get('comicsNoData').pushObject(akiraND);
+        get(this, 'comicsLiterals').pushObject(akiraLit);
+        get(this, 'comicsNative').pushObject(akira);
+        get(this, 'comicsNoData').pushObject(akiraND);
 
-        this.store.createRecord('comic', {id: 1, title: 'Akira'});
+        get(this, 'store').createRecord('comic', {id: 1, title: 'Akira'});
       }
 
       this.toggleProperty('akira');
     },
 
     toggleBlacksad () {
-      let title = (this.get('blacksad')) ? 'Blacksad' : 'Foo';
-      let newTitle = (this.get('blacksad')) ? 'Foo' : 'Blacksad';
+      let title = (get(this, 'blacksad')) ? 'Blacksad' : 'Foo';
+      let newTitle = (get(this, 'blacksad')) ? 'Foo' : 'Blacksad';
 
-      this.get('comicsLiterals').removeObject(title);
-      this.get('comicsLiterals').pushObject(newTitle);
-      this.get('comicsNoData').findBy('title', title).set('title', newTitle);
+      get(this, 'comicsLiterals').removeObject(title);
+      get(this, 'comicsLiterals').pushObject(newTitle);
+      set(get(this, 'comicsNoData').findBy('title', title), 'title', newTitle);
+      set(get(this, 'comicsNative').findBy('title', title), 'title', newTitle);
 
-      Ember.set(this.get('comicsNative').findBy('title', title), 'title', newTitle);
-
-      this.store.find('comic', 2).then((blacksad) => {
-        blacksad.set('title', newTitle);
+      get(this, 'store').find('comic', 2).then((blacksad) => {
+        set(blacksad, 'title', newTitle);
       });
 
       this.toggleProperty('blacksad');
