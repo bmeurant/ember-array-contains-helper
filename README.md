@@ -43,6 +43,15 @@ not rerun the helper. This is probably due to [this bug](https://github.com/embe
 
 See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper) for current tests and compatibility details.
 
+## Troubleshooting
+
+Before its version 2.x, this addon came with a polyfill (`ember-runtime-enumerable-includes-polyfill`) emulating the native EcmaScript method `includes` in case you wanted to run it within an environment that did not support this method.
+
+Since its version 2.x, the polyfill is not included by default and this addon relies on the fact that it is run in an environment supporting the `includes` method.
+Errors will occur if it is not the case.
+
+If you want to use this addon in an older browser or environment that does not support `includes`, you must then now explicitely add the polyfill as a regular dependency: `yarn add ember-runtime-enumerable-includes-polyfill`.
+
 ## Installation
 
 * `ember install ember-array-contains-helper`
