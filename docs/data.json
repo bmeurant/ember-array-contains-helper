@@ -2,7 +2,7 @@
     "project": {
         "name": "ember-array-contains-helper",
         "description": "Ember helper to test the presence of an item in an array",
-        "version": "v1.3.2"
+        "version": "1.3.2.cf6a9ffd"
     },
     "files": {
         "addon/helpers/array-contains.js": {
@@ -29,7 +29,7 @@
             "namespaces": {},
             "tag": "module",
             "file": "addon/helpers/array-contains.js",
-            "line": 13
+            "line": 12
         }
     },
     "classes": {
@@ -44,7 +44,7 @@
             "module": "ember-array-contains-helper",
             "namespace": "",
             "file": "addon/helpers/array-contains.js",
-            "line": 13,
+            "line": 12,
             "description": "Helper providing a way to test the presence of an item in an array.\n\nDepending on the given parameters, the test is made on\n- the presence of a **literal**:\n   ``{{array-contains array 'foo'}}``\n- the presence of **the object itself**:\n   ``{{array-contains array object}}``\n- the presence of **an object containing a specific property with a specific value**:\n   ``{{array-contains array 'value' property='title'}}``\n\nNote that null or undefined are considered acceptable and equivalent values for 'value' parameter (resolve both to null)\n\nThis helper could be used standalone or, more often, combined with the ``if`` helper:\n\n```html\n  {{if (array-contains array 'value' property='title') 'something' 'something else'}}\n```\n\nThis addon installs observers on the provided array to listen any external change made on it. It includes any addition/removal\nof an item and, if a property is specified, any change of the property of any array element.",
             "extends": "{Ember.Helper}",
             "access": "public",
@@ -55,7 +55,7 @@
     "classitems": [
         {
             "file": "addon/helpers/array-contains.js",
-            "line": 42,
+            "line": 41,
             "description": "Test if an array contains an object, eventually based on one of this object property / value",
             "itemtype": "method",
             "name": "compute",
@@ -76,7 +76,7 @@
                 "type": "Boolean"
             },
             "throws": {
-                "description": "if params is null or not an array or if the given array (from ``params[0]``) is\nnot null and not an array.",
+                "description": "if the given array (from ``params[0]``) is not null and not an array.",
                 "type": "Ember.Error"
             },
             "class": "ArrayContainsHelper",
@@ -84,7 +84,7 @@
         },
         {
             "file": "addon/helpers/array-contains.js",
-            "line": 94,
+            "line": 92,
             "description": "Install and clean observers to be able to recompute result if array changes :\ncontent added or removed or observed property modified.",
             "itemtype": "method",
             "name": "setupRecompute",
