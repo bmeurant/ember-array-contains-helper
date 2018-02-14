@@ -28,7 +28,7 @@
     "coveralls": "^3.0.0",
     "ember-ajax": "^3.0.0",
     "ember-browserify": "^1.1.13",
-    "ember-cli": "^2.18.2",
+    "ember-cli": "^3.0.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-chai": "^0.4.0",
     "ember-cli-changelog": "html-next/ember-cli-changelog",
@@ -52,9 +52,12 @@
     "ember-export-application-global": "^2.0.0",
     "ember-inflector": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
+    "ember-maybe-import-regenerator": "^0.1.6",
     "ember-paper": "1.0.0-beta.4",
     "ember-resolver": "^4.1.0",
     "ember-source": "~3.0.0",
+    "ember-source-channel-url": "^1.0.1",
+    "ember-try": "^0.2.23",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
     "loader.js": "^4.2.3",
@@ -68,7 +71,7 @@
     "configPath": "tests/dummy/config",
     "demoURL": "http://baptiste.meurant.io/ember-array-contains-helper/",
     "versionCompatibility": {
-      "ember": ">=2.12 <=2.18"
+      "ember": ">=2.12 <=3.0"
     }
   }
 }
