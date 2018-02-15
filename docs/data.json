@@ -2,7 +2,7 @@
     "project": {
         "name": "ember-array-contains-helper",
         "description": "Ember helper to test the presence of an item in an array",
-        "version": "v2.0.0"
+        "version": "2.0.0.317b7576"
     },
     "files": {
         "addon/helpers/array-contains.js": {
