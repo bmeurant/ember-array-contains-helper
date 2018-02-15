@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v2.0.0 (February 15th, 2018)
+
+#### Commits
+
+- [be6c9d96](https://github.com/bmeurant/ember-array-contains-helper/commit/be6c9d967a62990e296cbf4d55be01de2c8ab8c6) **refactor(includes)**: remove includes polyfill by default *by [Baptiste Meurant](https://github.com/bmeurant)*
+
+  **Breaking changes**:
+
+  Starting from this version, the `ember-runtime-enumerable-includes-polyfill` is not included by default anymore.
+  If you need to support environments that does not handle the EcmaScript `includes` method, you will have now to explicitely add it as a dependency: `yarn add ember-runtime-enumerable-includes-polyfill`.
+
+- [7144bac6](https://github.com/bmeurant/ember-array-contains-helper/commit/7144bac620e78c9ce3481fe89501d19c825667ff) **refactor(modules)**: new Modules API, end of support for old versions *by [Baptiste Meurant](https://github.com/bmeurant)*
+
+  **Breaking changes**:
+
+  This versions fully embraces the [new Modules API](https://github.com/emberjs/rfcs/blob/master/text/0176-javascript-module-api.md).
+  As a direct consequence, it will break compatibility with versions of ember that does not support this new API.
+  If you have to support older versions, you must prefer the 1.3.x version.
+  This version and all future versions will test and support only the lasts ember LTS versions and, obviously, the last ember release.
+  Please see [ember-try config](./config/ember-try.js) for details.
+
 ## v1.3.2 (May 24th, 2017)
 
 #### Commits
