@@ -30,7 +30,7 @@
     "ember-browserify": "^1.1.13",
     "ember-cli": "^3.0.0",
     "ember-cli-app-version": "^3.0.0",
-    "ember-cli-chai": "^0.4.0",
+    "ember-cli-chai": "^0.5.0",
     "ember-cli-changelog": "html-next/ember-cli-changelog",
     "ember-cli-code-coverage": "bmeurant/ember-cli-code-coverage#exclude-dummy",
     "ember-cli-dependency-checker": "^2.0.0",
