@@ -23,7 +23,7 @@
     "ember-cli-babel": "^6.6.0"
   },
   "devDependencies": {
-    "broccoli-asset-rev": "^2.4.5",
+    "broccoli-asset-rev": "^3.0.0",
     "codeclimate-test-reporter": "^0.4.1",
     "coveralls": "^3.0.0",
     "ember-ajax": "^3.0.0",
