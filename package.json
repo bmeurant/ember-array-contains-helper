@@ -48,7 +48,7 @@
     "ember-cli-yuidoc": "^0.8.8",
     "ember-code-snippet": "2.2.1",
     "ember-composability-tools": "0.0.9",
-    "ember-data": "^3.0.0",
+    "ember-data": "^3.15.0",
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
     "ember-inflector": "^3.0.0",
