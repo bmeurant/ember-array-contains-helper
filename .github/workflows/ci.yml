@@ -1,0 +1,124 @@
+# The workflow template is designed for Ember addons.
+#
+# It assumes certain dependencies and scripts in package.json. If
+# they don't apply to your project, feel free to remove irrelevant
+# code in the workflow. These can be inferred from the job name.
+#
+# {
+#   "scripts": {
+#     "build": "ember build --environment=production",
+#     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+#     "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+#     "lint:hbs": "ember-template-lint .",
+#     "lint:hbs:fix": "ember-template-lint . --fix",
+#     "lint:js": "eslint . --cache",
+#     "lint:js:fix": "eslint . --fix",
+#     "start": "ember serve",
+#     "test": "ember test",
+#     "test:ember-compatibility": "./node_modules/.bin/ember try:one"
+#   },
+#   "devDependencies": {
+#     "concurrently" (lint)
+#     "ember-qunit" (test-app)
+#     "ember-template-lint" (lint)
+#     "ember-try" (test-compatibility)
+#     "eslint" (lint)
+#   },
+# }
+#
+# For more information, please visit:
+#
+#   - https://crunchingnumbers.live/2020/03/17/ci-with-github-actions-for-ember-apps/
+#   - https://crunchingnumbers.live/2020/08/31/ci-with-github-actions-for-ember-apps-part-2/
+#
+# Author: Isaac J. Lee (GitHub: @ijlee2)
+# Created at: August 31, 2020
+# Updated at: December 8, 2022
+#
+name: CI
+
+on:
+  push:
+    branches:
+      - tests
+  pull_request: {}
+  schedule:
+    # Run the workflow every Monday at 6 am CST
+    - cron: '0 11 * * MON'
+
+env:
+  NODE_VERSION: 12.22.12
+
+jobs:
+  lint:
+    name: Lint files
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint:js
+
+
+  test-app:
+    name: Test app
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test
+        run: npm run test
+
+
+  test-compatibility:
+    name: Test compatibility
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        scenario:
+          - 'ember-lts-3.28'
+          - 'ember-lts-4.4'
+          - 'ember-release'
+          - 'ember-beta'
+          - 'ember-canary'
+          - 'embroider-safe'
+          - 'embroider-optimized'
+    timeout-minutes: 15
+    steps:
+      - name: Check out a copy of the repo
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          cache: 'npm'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test
+        run: npm run test:ember-compatibility ${{ matrix.scenario }} --- npm run test

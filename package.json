@@ -12,11 +12,18 @@
     "test": "tests"
   },
   "repository": "https://github.com/bmeurant/ember-array-contains-helper",
+
   "scripts": {
-    "build": "ember build",
-    "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
+    "build": "ember build --environment=production",
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "test": "ember try:each",
+    "test": "ember test",
+    "test:ember-compatibility": "./node_modules/.bin/ember try:one",
     "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\" --environment production; git push; git checkout -"
   },
   "dependencies": {
