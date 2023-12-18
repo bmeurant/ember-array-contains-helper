@@ -1,5 +1,10 @@
 # ember-array-contains-helper 
 
+## Important notice !!
+
+**This addon is no more maintained since ember 3.0**
+
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/bmeurant/ember-array-contains-helper.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/bmeurant/ember-array-contains-helper.svg?branch=master)](https://travis-ci.org/bmeurant/ember-array-contains-helper)
 [![npm version](https://img.shields.io/npm/v/ember-array-contains-helper.svg)](https://www.npmjs.com/package/ember-array-contains-helper)
