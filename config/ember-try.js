@@ -28,9 +28,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('release'),
-          },
-          resolutions: {
-            'ember-in-element-polyfill': '1.0.1',
+            'ember-paper': null,
           },
         },
       },
@@ -39,9 +37,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('beta'),
-          },
-          resolutions: {
-            'ember-in-element-polyfill': '1.0.1',
+            'ember-paper': null,
           },
         },
       },
@@ -50,9 +46,7 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
-          },
-          resolutions: {
-            'ember-in-element-polyfill': '1.0.1',
+            'ember-paper': null,
           },
         },
       },
