@@ -41,19 +41,10 @@ module.exports = function (environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
-
-    ENV['ember-cli-mirage'] = {
-      enabled: false,
-    };
   }
 
   if (environment === 'production') {
-    (ENV.rootURL = 'http://baptiste.meurant.io/ember-array-contains-helper/'),
-      (ENV.locationType = 'hash'),
-      (ENV.host = 'http://baptiste.meurant.io/ember-array-contains-helper'),
-      (ENV['ember-cli-mirage'] = {
-        enabled: true,
-      });
+    // prod options
   }
 
   return ENV;
