@@ -1,12 +1,9 @@
-{{!-- BEGIN-SNIPPET data --}}
-{{array-contains comics 'Akira'
-    property='title'}}
+{{! BEGIN-SNIPPET data }}
+{{array-contains this.comics 'Akira' property='title'}}
 
-{{array-contains comics 'Blacksad'
-    property='title'}}
+{{array-contains this.comics 'Blacksad' property='title'}}
 
-{{array-contains comics value}}
+{{array-contains this.comics this.value}}
 
-{{array-contains comics 'Blueberry'
-    property='title'}}
-{{!-- END-SNIPPET --}}
+{{array-contains this.comics 'Blueberry' property='title'}}
+{{! END-SNIPPET }}
