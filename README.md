@@ -12,14 +12,10 @@ If you want the helper to react to add/removals, you should be using some versio
 
 In any case, this addon should be compatible with basically every ember version from 3.28 to 5.x.
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/bmeurant/ember-array-contains-helper.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/bmeurant/ember-array-contains-helper.svg?branch=master)](https://travis-ci.org/bmeurant/ember-array-contains-helper)
 [![npm version](https://img.shields.io/npm/v/ember-array-contains-helper.svg)](https://www.npmjs.com/package/ember-array-contains-helper)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 [![Ember Observer Score](http://emberobserver.com/badges/ember-array-contains-helper.svg)](http://emberobserver.com/addons/ember-array-contains-helper)
-[![dependencies](https://david-dm.org/bmeurant/ember-array-contains-helper/status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper)
-[![devDependencies](https://david-dm.org/bmeurant/ember-array-contains-helper/dev-status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper?type=dev)
 
 Ember template helper allowing to test if an array contains a particular element.
 
@@ -30,20 +26,9 @@ Ember template helper allowing to test if an array contains a particular element
 This helper allows to test the presence of a literal, a full object or a specific property/value of
 an object inside a given array. Objects can be native or Ember objects.
 
-## Documentation
-
-The documentation is available [here](http://baptiste.meurant.io/ember-array-contains-helper/docs).
-
-## Samples & Demo
-
-- A dummy demo application containing syntax samples runs [here](http://baptiste.meurant.io/ember-array-contains-helper/)
-- The source code of this demo can be found [here](https://github.com/bmeurant/ember-array-contains-helper/blob/master/tests/dummy/app/templates/application.hbs)
-
 ## Compatibility
 
 - This helper is tested against Ember 3.28+
-
-See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper) for current tests and compatibility details.
 
 ## Troubleshooting
 
@@ -186,23 +171,6 @@ export default class ApplicationRoute extends Route {
 
 It could eventually break some apps relying on the initial behaviour but it has been considered as a fix since the first behaviour
 was accidental. See [this issue](https://github.com/emberjs/ember.js/issues/14016) for details.
-
-## Changelog
-
-Changelog can be found [here](https://github.com/bmeurant/ember-array-contains-helper/blob/master/CHANGELOG.md)
-
-## Contributing
-
-Thank you!!!
-
-- Open an Issue for discussion first if you're unsure a feature/fix is wanted.
-- Branch off of `master` (Use descriptive branch names)
-- Follow [DockYard Ember.js Style Guide](https://github.com/DockYard/styleguides/blob/master/engineering/ember.md)
-- if needed, add or update documentation following [YUIDoc syntax](http://yui.github.io/yuidoc/syntax/)
-- Test your features / fixes
-- Use [Angular-Style Commits](https://github.com/angular/angular.js/blob/v1.4.8/CONTRIBUTING.md#-submission-guidelines). Use correct type, short subject and motivated body.
-- PR against `master`
-- Linting & tests must pass, coverage and codeclimate should be preserved
 
 ## Development
 
