@@ -2,7 +2,7 @@
 
 ## Important notice !!
 
-**This addon is no more maintained since ember 3.0**
+**This addon is not maintained**
 
 In recent Ember versions, you problem don't need an addon for this case.
 With the introduction of [helper functions](https://guides.emberjs.com/release/components/helper-functions/), you can just easily create a local helper
