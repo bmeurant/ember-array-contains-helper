@@ -8,7 +8,7 @@ In recent Ember versions, you problem don't need an addon for this case.
 With the introduction of [helper functions](https://guides.emberjs.com/release/components/helper-functions/), you can just easily create a local helper
 that checks if an element is contained in an array.
 
-If you want the helper to react to add/removals, you should be using some version of a "reactive" array. Either [`EmberArray`](https://api.emberjs.com/ember/5.5/classes/EmberArray) or `TrackedArray` from [tracked-built-ins](https://github.com/tracked-tools/tracked-built-ins).
+If you want the helper to react to add/removals, you should be using some version of a "reactive" array. Either [`EmberArray`](https://api.emberjs.com/ember/5.5/classes/EmberArray) or `TrackedArray` from [tracked-built-ins](https://github.com/tracked-tools/tracked-built-ins). See demo [here](https://limber.glimdown.com/edit?c=AYjmCsGcAIBsEsBuBTaAHATsx9kHcAoeAWzQHsMAXaAYTNLIDtlHqAzDe6AcgAFQExYsgwB6AMb1yzVtwDcRBlWgBvaJQwBDcQGtkAE2gBfaBy58BJYWI3ad8RqHmLyytU2OnOxHr2TEAIxFRYjJ9eDZcDGcSV2o1AEFPMx8%2BfyCxTQwtAE9nAmQADzjofWQ2TQBXWGpxWE1IGAAJZFhYMgB1ClhDIsoWfRg6Bhl4gmhoXltdA2gs3OgAXmhmPGgEgAoAbQAGABpoAEYDgCYDgGYAXQBKBXG57M0culZNBxhljfmD%2BH7ia6WAD4HhgAHQOOqVMqQDa-fy3e73ShkUACZAAST%2BS2gGwBi2BKnuE1gyGoDjKhWxlAAFvBIKD5k9wYwKQB5NgbAAsCImEwiOPJRSWi2WAFpDgDCbzeTS6QzHjkGfp9KyAuBkOJKFyebyTK1IKgpdL1LT6YzFVhQihVerNdqicZ7kYFBN7gAeP5oer9QEOt1oQEJBXQCGwKHIGBw4gAfmgbsgGiYoEBKhUsrNCpelDejBg6flC05RiMbtECc4jkBpYDDr9AUqlGRjFUKg8ACI6vBdG2TXLkaiSZj-MXAQAVFFokN-Uv1xtMX0TUue73IX1GAggYAEIA&format=glimdown).
 
 In any case, this addon should be compatible with basically every ember version from 3.28 to 5.x.
 
