@@ -4,7 +4,6 @@
 
 import { isNone } from '@ember/utils';
 import { A as emberArray, isArray } from '@ember/array';
-import EmberError from '@ember/error';
 import { helper } from '@ember/component/helper';
 
 /**
@@ -49,7 +48,7 @@ export function arrayContains([array, value], { property }) {
   }
 
   if (!isArray(array)) {
-    throw new EmberError('First parameter should be a valid array');
+    throw new Error('First parameter should be a valid array');
   }
 
   // Wrap into an Ember.Array to use advanced methods while supporting disabling prototype extensions
