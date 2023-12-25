@@ -1,9 +1,16 @@
-# ember-array-contains-helper 
+# ember-array-contains-helper
 
 ## Important notice !!
 
 **This addon is no more maintained since ember 3.0**
 
+In recent Ember versions, you problem don't need an addon for this case.
+With the introduction of [helper functions](https://guides.emberjs.com/release/components/helper-functions/), you can just easily create a local helper
+that checks if an element is contained in an array.
+
+If you want the helper to react to add/removals, you should be using some version of a "reactive" array. Either [`EmberArray`](https://api.emberjs.com/ember/5.5/classes/EmberArray) or `TrackedArray` from [tracked-built-ins](https://github.com/tracked-tools/tracked-built-ins).
+
+In any case, this addon should be compatible with basically every ember version from 3.28 to 5.x.
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/bmeurant/ember-array-contains-helper.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/bmeurant/ember-array-contains-helper.svg?branch=master)](https://travis-ci.org/bmeurant/ember-array-contains-helper)
@@ -11,24 +18,17 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 [![Ember Observer Score](http://emberobserver.com/badges/ember-array-contains-helper.svg)](http://emberobserver.com/addons/ember-array-contains-helper)
-[![Code Climate](https://codeclimate.com/github/bmeurant/ember-array-contains-helper/badges/gpa.svg)](https://codeclimate.com/github/bmeurant/ember-array-contains-helper)
-[![Test Coverage](https://coveralls.io/repos/github/bmeurant/ember-array-contains-helper/badge.svg?branch=master&service=github)](https://coveralls.io/github/bmeurant/ember-array-contains-helper?branch=master)
 [![dependencies](https://david-dm.org/bmeurant/ember-array-contains-helper/status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper)
 [![devDependencies](https://david-dm.org/bmeurant/ember-array-contains-helper/dev-status.svg)](https://david-dm.org/bmeurant/ember-array-contains-helper?type=dev)
 
 Ember template helper allowing to test if an array contains a particular element.
 
 ```hbs
-{{array-contains model 'value' property='title'}}
-``` 
- 
-This helper allows to test the presence of a literal, a full object or a specific property/value of 
+{{array-contains this.model 'value' property='title'}}
+```
+
+This helper allows to test the presence of a literal, a full object or a specific property/value of
 an object inside a given array. Objects can be native or Ember objects.
-
-## Observing
-
-This addon installs observers on the provided array to listen any external change made on it. It includes any addition/removal
-of an item and, if a property is specified, any change of the property of any array element.
 
 ## Documentation
 
@@ -36,15 +36,12 @@ The documentation is available [here](http://baptiste.meurant.io/ember-array-con
 
 ## Samples & Demo
 
-* A dummy demo application containing syntax samples runs [here](http://baptiste.meurant.io/ember-array-contains-helper/)
-* The source code of this demo can be found [here](https://github.com/bmeurant/ember-array-contains-helper/blob/master/tests/dummy/app/templates/application.hbs)
+- A dummy demo application containing syntax samples runs [here](http://baptiste.meurant.io/ember-array-contains-helper/)
+- The source code of this demo can be found [here](https://github.com/bmeurant/ember-array-contains-helper/blob/master/tests/dummy/app/templates/application.hbs)
 
 ## Compatibility
 
-- This helper basically works in **1.13.0 ember version** but the changes on the array (add/remove/change property) will
-not rerun the helper. This is probably due to [this bug](https://github.com/emberjs/ember.js/pull/11445).
-- Versions before 2.x are tested and compatible with ember versions from **1.13.1** to **2.12**.
-- After 2.x, tests are only run against **the two last LTS ember versions, release, beta and canary**. See [ember-try config for details](./config/ember-try.js)
+- This helper is tested against Ember 3.28+
 
 See travis CI build and report [here](https://travis-ci.org/bmeurant/ember-array-contains-helper) for current tests and compatibility details.
 
@@ -59,7 +56,7 @@ If you want to use this addon in an older browser or environment that does not s
 
 ## Installation
 
-* `ember install ember-array-contains-helper`
+- `ember install ember-array-contains-helper`
 
 ## Usage
 
@@ -69,118 +66,125 @@ If you want to use this addon in an older browser or environment that does not s
 
 Where:
 
-* `<array>` is the array to search into. Should be a valid not null array.
-* `<value>` is the value which is supposed to be contained in the arrray. Could be an object or a literal, null or undefined.
-* `<property>` is an option: if set, the search is done on the presence of an object containing a
-property `<property>` with the value `<value>`. If not, the search is done of the presence of the full
-`<value>` (object or literal)
+- `<array>` is the array to search into. Should be a valid not null array.
+- `<value>` is the value which is supposed to be contained in the arrray. Could be an object or a literal, null or undefined.
+- `<property>` is an option: if set, the search is done on the presence of an object containing a
+  property `<property>` with the value `<value>`. If not, the search is done of the presence of the full
+  `<value>` (object or literal)
 
 This helper could be:
 
-* used standalone: 
-   ```hbs
-   {{array-contains model 'value' property='title'}}
-   ``` 
-   
-* or, more often, combined with the ``if`` helper: 
-   ```hbs
-   {{if (array-contains model 'value' property='title') 'something' 'something else'}}
-   ```
+- used standalone:
+  ```hbs
+  {{array-contains this.model 'value' property='title'}}
+  ```
+- or, more often, combined with the `if` helper:
+  ```hbs
+  {{if
+    (array-contains this.model 'value' property='title')
+    'something'
+    'something else'
+  }}
+  ```
 
 Depending on the given parameters, the test is made on
 
-* the presence of a literal:
-  
+- the presence of a literal:
+
 ```javascript
 // routes/application.js
 
-import Ember from 'ember';
-export default Ember.Route.extend({
-  model () {
+import Route from '@ember/routing/route';
+
+export default class ApplicationRoute extends Route {
+  model() {
     return ['Akira', 'Blacksad', 'CalvinAndHobbes'];
   }
-});
+}
 ```
 
 ```hbs
-{{!-- templates/application.hbs --}}
+{{! templates/application.hbs }}
 
-{{array-contains model 'Akira'}}
+{{array-contains this.model 'Akira'}}
 ```
-   
-* the presence of the object itself:
-   
+
+- the presence of the object itself:
+
 ```javascript
 // routes/application.js
 
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import Comic from '../models/comic';
 
 let blackSad = Comic.create({
-  title: 'Blacksad'
+  title: 'Blacksad',
 });
 
 let calvinAndHobbes = Comic.create({
-  title: 'Calvin and Hobbes'
+  title: 'Calvin and Hobbes',
 });
 
 let akira = Comic.create({
-  title: 'Akira'
+  title: 'Akira',
 });
 
-export default Ember.Route.extend({
-  model () {
+export default class ApplicationRoute extends Route {
+  model() {
     return [akira, blacksad, calvinAndHobbes];
-  },
-  
-  setupController (controller, model) {
-    controller.set('calvinAndHobbes', calvinAndHobbes);
-    this._super(controller, model);
-  },
-});
+  }
+
+  setupController(controller) {
+    super.setupController(...arguments);
+    controller.calvinAndHobbes = calvinAndHobbes;
+  }
+}
 ```
 
 ```hbs
-{{!-- templates/application.hbs --}}
-   
-{{array-contains model calvinAndHobbes}}
+{{! templates/application.hbs }}
+
+{{array-contains this.model this.calvinAndHobbes}}
 ```
-   
-* the presence of an object containing a specific property with a specific value using the option ``property``:
+
+- the presence of an object containing a specific property with a specific value using the option `property`:
 
 ```javascript
 // routes/application.js
 
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
-export default Ember.Route.extend({
-  model () {
+export default class ApplicationRoute extends Route {
+  @service store;
+
+  model() {
     return this.store.findAll('comic');
   }
-});
+}
 ```
 
 ```hbs
-{{!-- templates/application.hbs --}}
-   
-{{array-contains model 'Blacksad' property='title'}}
+{{! templates/application.hbs }}
+
+{{array-contains this.model 'Blacksad' property='title'}}
 ```
 
-### ``null`` and ``undefined``
+### `null` and `undefined`
 
-``null`` and ``undefined`` are considered acceptable values for 'value' parameter.
+`null` and `undefined` are considered acceptable values for 'value' parameter.
 
-* **until ember 2.9**, ``null`` and ``undefined`` are both coerced to ``null`` by the templating engine. The following
-  expressions are therefore both leading to check for the presence of a ``null`` value inside the array:
+- **until ember 2.9**, `null` and `undefined` are both coerced to `null` by the templating engine. The following
+  expressions are therefore both leading to check for the presence of a `null` value inside the array:
 
   ```hbs
   {{array-contains collection null}}
   {{array-contains collection undefined}}
-  ``` 
+  ```
 
-* **ember 2.10 (glimmer)** changed this behaviour. ``undefined`` are then preserved and not coerced to ``null`` anymore.
+- **ember 2.10 (glimmer)** changed this behaviour. `undefined` are then preserved and not coerced to `null` anymore.
 
-It could eventually break some apps relying on the initial behaviour but it has been considered as a fix since the first behaviour 
+It could eventually break some apps relying on the initial behaviour but it has been considered as a fix since the first behaviour
 was accidental. See [this issue](https://github.com/emberjs/ember.js/issues/14016) for details.
 
 ## Changelog
@@ -191,43 +195,43 @@ Changelog can be found [here](https://github.com/bmeurant/ember-array-contains-h
 
 Thank you!!!
 
- - Open an Issue for discussion first if you're unsure a feature/fix is wanted.
- - Branch off of `master` (Use descriptive branch names)
- - Follow [DockYard Ember.js Style Guide](https://github.com/DockYard/styleguides/blob/master/engineering/ember.md)
- - if needed, add or update documentation following [YUIDoc syntax](http://yui.github.io/yuidoc/syntax/)
- - Test your features / fixes
- - Use [Angular-Style Commits](https://github.com/angular/angular.js/blob/v1.4.8/CONTRIBUTING.md#-submission-guidelines). Use correct type, short subject and motivated body.
- - PR against `master`
- - Linting & tests must pass, coverage and codeclimate should be preserved
+- Open an Issue for discussion first if you're unsure a feature/fix is wanted.
+- Branch off of `master` (Use descriptive branch names)
+- Follow [DockYard Ember.js Style Guide](https://github.com/DockYard/styleguides/blob/master/engineering/ember.md)
+- if needed, add or update documentation following [YUIDoc syntax](http://yui.github.io/yuidoc/syntax/)
+- Test your features / fixes
+- Use [Angular-Style Commits](https://github.com/angular/angular.js/blob/v1.4.8/CONTRIBUTING.md#-submission-guidelines). Use correct type, short subject and motivated body.
+- PR against `master`
+- Linting & tests must pass, coverage and codeclimate should be preserved
 
 ## Development
 
 ### Installation
 
-* `git clone https://github.com/bmeurant/ember-array-contains-helper`
-* `cd ember-array-contains-helper`
-* `npm install`
+- `git clone https://github.com/bmeurant/ember-array-contains-helper`
+- `cd ember-array-contains-helper`
+- `npm install`
 
 ### Running dummy demo app
 
-* `npm install`
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+- `npm install`
+- `ember server`
+- Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Linting
- 
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+
+- `npm run lint:js`
+- `npm run lint:js -- --fix`
 
 ### Running Tests
 
-* `ember test` – Runs the test suite on the current Ember version
-* `ember test --server` – Runs the test suite in "watch mode"
-* `npm test` – Runs `ember try:each` to test your addon against multiple Ember versions
+- `ember test` – Runs the test suite on the current Ember version
+- `ember test --server` – Runs the test suite in "watch mode"
+- `npm test` – Runs `ember try:each` to test your addon against multiple Ember versions
 
 ### Building
 
-* `ember build`
+- `ember build`
 
 ### Generating documentation
 

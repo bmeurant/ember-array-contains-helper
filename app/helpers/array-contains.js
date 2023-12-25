@@ -1,1 +1,4 @@
-export { default, arrayContains } from 'ember-array-contains-helper/helpers/array-contains';
+export {
+  default,
+  arrayContains,
+} from 'ember-array-contains-helper/helpers/array-contains';

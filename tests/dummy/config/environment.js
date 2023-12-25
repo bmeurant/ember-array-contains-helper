@@ -1,34 +1,26 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'dummy',
     environment,
     rootURL: '/',
     locationType: 'auto',
-    host: '/',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
-    contentSecurityPolicy: {
-      'script-src': "'self' 'unsafe-eval' *.google.com *.gstatic.com",
-      'style-src': "'self' 'unsafe-inline' *.google.com *.googleapis.com",
-      'font-src': "'self' *.gstatic.com *.googleapis.com",
-      'img-src': "'self' *.amazonaws.com"
-    }
   };
 
   if (environment === 'development') {
@@ -37,12 +29,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.locationType = 'hash'
   }
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.rootURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -50,20 +40,16 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-    ENV['ember-cli-mirage'] = {
-      enabled: false
-    }
-
     ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {
-    ENV.rootURL = 'http://baptiste.meurant.io/ember-array-contains-helper/',
-    ENV.locationType = 'hash',
-    ENV.host = 'http://baptiste.meurant.io/ember-array-contains-helper',
-    ENV['ember-cli-mirage'] = {
-      enabled: true
-    }
+    (ENV.rootURL = 'http://baptiste.meurant.io/ember-array-contains-helper/'),
+      (ENV.locationType = 'hash'),
+      (ENV.host = 'http://baptiste.meurant.io/ember-array-contains-helper'),
+      (ENV['ember-cli-mirage'] = {
+        enabled: true,
+      });
   }
 
   return ENV;

@@ -1,6 +1,6 @@
-import DS from 'ember-data';
+import RESTAdapter from '@ember-data/adapter/rest';
 import config from '../config/environment';
 
-export default DS.RESTAdapter.extend({
-  host: config.host
-});
+export default class ApplicationAdapter extends RESTAdapter {
+  host = config.host;
+}
