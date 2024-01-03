@@ -1,6 +1,6 @@
 {
   "name": "ember-array-contains-helper",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Ember helper to test the presence of an item in an array",
   "keywords": [
     "ember-addon"
